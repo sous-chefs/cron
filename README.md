@@ -1,19 +1,22 @@
-DESCRIPTION
+Description
 ===========
 
-Installs the cron package.
+Installs the cron package and starts the crond service.
 
-REQUIREMENTS
+Requirements
 ============
 
-Works on any platform with a package named 'cron'.
+Platforms:
 
-LICENSE AND AUTHOR
+* RHEL family
+* Debian family
+
+License and Author
 ==================
 
 Author:: Joshua Timberman (<joshua@opscode.com>)
 
-Copyright 2010, Opscode, Inc.
+Copyright 2010-2012, Opscode, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
