@@ -17,6 +17,18 @@
 # limitations under the License.
 #
 
-package "cron" do
+cron_package = case node['platform']
+when 'centos', 'redhat'
+  node.platform_version.to_f >= 6.0 ? "cronie" : "vixie-cron"
+else
+  "cron"
+end
+
+package cron_package do
   action :upgrade
 end
+
+service "crond" do
+  action [:start, :enable]
+end
+
