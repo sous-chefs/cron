@@ -32,7 +32,7 @@ service "crond" do
   case node['platform']
   when "redhat", "centos", "scientific", "fedora", "amazon"
     service_name "crond"
-  when "debian", "ubuntu"
+  when "debian", "ubuntu", "suse"
     service_name "cron"
   end
   action [:start, :enable]
