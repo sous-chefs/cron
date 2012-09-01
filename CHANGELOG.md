@@ -1,4 +1,4 @@
-## v1.0.2:
+## v1.0.4:
 
 * [COOK-1514] - Cron cookbook manages wrong service name on SuSE
 
