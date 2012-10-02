@@ -12,10 +12,10 @@ attribute :command, :kind_of => String, :required => true
 
 attribute :user, :kind_of => String, :default => "root"
 
-attribute :mailto, :kind_of => String
-attribute :path, :kind_of => String
-attribute :home, :kind_of => String
-attribute :shell, :kind_of => String
+attribute :mailto, :kind_of => [String, NilClass]
+attribute :path, :kind_of => [String, NilClass]
+attribute :home, :kind_of => [String, NilClass]
+attribute :shell, :kind_of => [String, NilClass]
 
 def initialize(*args)
   super
