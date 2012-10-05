@@ -1,3 +1,4 @@
 cookbook "cron" do
-  runtimes []
+  configuration "default"
+  configuration "cook_1622"
 end
