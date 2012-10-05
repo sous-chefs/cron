@@ -5,26 +5,28 @@ action :delete do
 end
 
 action :create do
-  template "/etc/cron.d/#{new_resource.name}" do
+  t = template "/etc/cron.d/#{new_resource.name}" do
+    cookbook new_resource.cookbook if new_resource.cookbook
     source "cron.d.erb"
     mode "0644"
     variables({
-      :name => new_resource.name,
+        :name => new_resource.name,
 
-      :minute => new_resource.minute,
-      :hour => new_resource.hour,
-      :day => new_resource.day,
-      :month => new_resource.month,
-      :weekday => new_resource.weekday,
+        :minute => new_resource.minute,
+        :hour => new_resource.hour,
+        :day => new_resource.day,
+        :month => new_resource.month,
+        :weekday => new_resource.weekday,
 
-      :command => new_resource.command,
-      :user => new_resource.user,
+        :command => new_resource.command,
+        :user => new_resource.user,
 
-      :mailto => new_resource.mailto,
-      :path => new_resource.path,
-      :home => new_resource.home,
-      :shell => new_resource.shell
-    })
+        :mailto => new_resource.mailto,
+        :path => new_resource.path,
+        :home => new_resource.home,
+        :shell => new_resource.shell
+      })
     action :create
   end
+  new_resource.updated_by_last_action(t.updated_by_last_action?)
 end
