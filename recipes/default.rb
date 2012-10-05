@@ -18,14 +18,14 @@
 #
 
 cron_package = case node['platform']
-               when "redhat", "centos", "scientific", "fedora", "amazon"
-                 node['platform_version'].to_f >= 6.0 ? "cronie" : "vixie-cron"
-               else
-                 "cron"
-               end
+  when "redhat", "centos", "scientific", "fedora", "amazon"
+    node['platform_version'].to_f >= 6.0 ? "cronie" : "vixie-cron"
+  else
+    "cron"
+  end
 
 package cron_package do
-  action :upgrade
+  action :install
 end
 
 service "crond" do

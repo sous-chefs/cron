@@ -8,4 +8,3 @@ version          "1.0.5"
 %w{redhat centos scientific fedora amazon debian ubuntu}.each do |os|
   supports os
 end
-
