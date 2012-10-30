@@ -6,7 +6,7 @@ end
 
 action :create do
   t = template "/etc/cron.d/#{new_resource.name}" do
-    cookbook new_resource.cookbook if new_resource.cookbook
+    cookbook new_resource.cookbook
     source "cron.d.erb"
     mode "0644"
     variables({
