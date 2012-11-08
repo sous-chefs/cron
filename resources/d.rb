@@ -14,7 +14,7 @@ attribute :command, :kind_of => String, :required => true
 attribute :user, :kind_of => String, :default => "root"
 
 attribute :mailto, :kind_of => [String, NilClass]
-attribute :path, :kind_of => [String, NilClass]
+attribute :path, :kind_of => [String, NilClass], :default => ENV['PATH']
 attribute :home, :kind_of => [String, NilClass]
 attribute :shell, :kind_of => [String, NilClass]
 
