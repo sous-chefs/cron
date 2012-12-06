@@ -1,7 +1,7 @@
 actions :create, :delete
 
 attribute :name, :kind_of => String, :name_attribute => true
-attribute :cookbook, :kind_of => [String, FalseClass], :default => false
+attribute :cookbook, :kind_of => String, :default => "cron"
 
 attribute :minute, :kind_of => [Integer, String], :default => "*"
 attribute :hour, :kind_of => [Integer, String], :default => "*"
