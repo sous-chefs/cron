@@ -22,6 +22,7 @@ package 'cron' do
                when 'rhel', 'fedora'
                  node['platform_version'].to_f >= 6.0 ? 'cronie' : 'vixie-cron'
                end
+  action :upgrade
 end
 
 service 'cron' do
