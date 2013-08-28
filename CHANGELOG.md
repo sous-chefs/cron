@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.2.6
+------
+### Improvement
+- **[COOK-3005](https://tickets.opscode.com/browse/COOK-3005)** - Remove blankline in template
+
 v1.2.4
 ------
 - [COOK-3058]: simplify conditionals in cron recipe
