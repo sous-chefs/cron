@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: cron_test
-# Recipe:: default
+# Cookbook Name:: cron
+# Recipe:: test
 #
 # Copyright:: (c) 2012, Opscode, Inc.
 #

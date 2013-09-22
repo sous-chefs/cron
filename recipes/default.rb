@@ -2,7 +2,7 @@
 # Cookbook Name:: cron
 # Recipe:: default
 #
-# Copyright 2010-2012, Opscode, Inc.
+# Copyright 2010-2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,23 +17,14 @@
 # limitations under the License.
 #
 
-cron_package = case node['platform']
-  when "redhat", "centos", "scientific", "fedora", "amazon"
-    node['platform_version'].to_f >= 6.0 ? "cronie" : "vixie-cron"
-  else
-    "cron"
-  end
-
-package cron_package do
-  action :install
+package 'cron' do
+  package_name case node['platform_family']
+               when 'rhel', 'fedora'
+                 node['platform_version'].to_f >= 6.0 ? 'cronie' : 'vixie-cron'
+               end
 end
 
-service "crond" do
-  case node['platform']
-  when "redhat", "centos", "scientific", "fedora", "amazon"
-    service_name "crond"
-  when "debian", "ubuntu", "suse"
-    service_name "cron"
-  end
-  action [:start, :enable]
+service 'cron' do
+  service_name 'crond' if platform_family?('rhel', 'fedora')
+  action [:enable, :start]
 end
