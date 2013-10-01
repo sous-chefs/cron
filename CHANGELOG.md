@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.2.8
+------
+### Bug
+- **[COOK-3452](https://tickets.opscode.com/browse/COOK-3452)** - Add support for raspbian platform
+
 v1.2.6
 ------
 ### Improvement
