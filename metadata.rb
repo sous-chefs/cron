@@ -9,3 +9,6 @@ version          "1.2.9"
 %w{redhat centos scientific fedora amazon debian ubuntu raspbian}.each do |os|
   supports os
 end
+
+recipe "cron", "Installs the cron package and starts the crond service."
+recipe "cron::test", "A test recipe using the cron_d resource."
