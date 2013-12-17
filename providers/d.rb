@@ -24,6 +24,10 @@ action :delete do
 end
 
 action :create do
+  if node['platform_family'] == "solaris2"
+    Chef::Log.error("Solaris does not support cron jobs in /etc/cron.d")
+    return
+  end
   t = template "/etc/cron.d/#{new_resource.name}" do
     cookbook new_resource.cookbook
     source "cron.d.erb"
