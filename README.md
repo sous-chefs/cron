@@ -8,6 +8,7 @@ Requirements
 Platforms:
 - RHEL family
 - Debian family
+- Gentoo
 
 
 Resources and Providers
