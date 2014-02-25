@@ -2,6 +2,15 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.0 (2014-02-25)
+-------------------
+### New Feature
+- **[COOK-4112](https://tickets.opscode.com/browse/COOK-4112)** - Solaris 11 support for cron
+
+### Bug
+- **[COOK-3813](https://tickets.opscode.com/browse/COOK-3813)** - Add metadata for recipes in the cron cookbook
+
+
 v1.2.8
 ------
 ### Bug
