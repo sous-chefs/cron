@@ -19,9 +19,10 @@
 
 include_recipe "cron"
 
-cron_d "daily-usage-report" do
-  minute 0
-  hour 23
-  command "/srv/app/scripts/daily_report"
+cron_d "bizarrely-scheduled-usage-report" do
+  minute "*/5"
+  hour "1,23"
+  day "2-5"
+  command "/srv/app/scripts/generate_report"
   user "appuser"
 end
