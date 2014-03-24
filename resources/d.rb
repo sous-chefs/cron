@@ -70,6 +70,6 @@ def self.validate_dow(spec)
   if ["sun", "mon", "tue", "wed", "thu", "fri", "sat"].include? spec.downcase then
     return true
   end
-  # 0-6 are legal for days of week
-  return validate_numeric(spec,0,6)
+  # 0-7 are legal for days of week
+  return validate_numeric(spec,0,7)
 end
