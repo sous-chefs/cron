@@ -2,6 +2,12 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.2 (2014-03-27)
+-------------------
+- [COOK-4337] - cron cookbook does no input validation
+- [COOK-4229] - Support the Gentoo package
+
+
 v1.3.0 (2014-02-25)
 -------------------
 ### New Feature
