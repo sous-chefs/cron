@@ -9,6 +9,7 @@ Platforms:
 - RHEL family
 - Debian family
 - Solaris family
+- Gentoo
 
 
 Resources and Providers
