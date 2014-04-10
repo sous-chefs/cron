@@ -12,4 +12,8 @@ SHELL=<%= @shell %>
 HOME=<%= @home %>
 <% end -%>
 
+<% if @predefined_value -%>
+<%= @predefined_value %> <%= @user %> <%= @command %>
+<% else -%>
 <%= @minute %> <%= @hour %> <%= @day %> <%= @month %> <%= @weekday %> <%= @user %> <%= @command %>
+<% end -%>
