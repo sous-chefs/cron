@@ -18,10 +18,10 @@
 #
 
 action :delete do
-  file "/etc/cron.d/#{new_resource.name}" do
+  f = file "/etc/cron.d/#{new_resource.name}" do
     action :delete
   end
-  new_resource.updated_by_last_action(t.updated_by_last_action?)
+  new_resource.updated_by_last_action(f.updated_by_last_action?)
 end
 
 action :create do
