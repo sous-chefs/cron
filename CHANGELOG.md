@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.6 (2014-04-09)
+-------------------
+- [COOK-4337] fixing validations
+
+
 v1.3.4 (2014-04-09)
 -------------------
 - Reverting [COOK-4337] - cron cookbook does no input validation
