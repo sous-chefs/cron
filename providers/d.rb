@@ -35,6 +35,8 @@ action :create do
     variables({
         :name => new_resource.name,
 
+        :predefined_value => new_resource.predefined_value,
+
         :minute => new_resource.minute,
         :hour => new_resource.hour,
         :day => new_resource.day,
