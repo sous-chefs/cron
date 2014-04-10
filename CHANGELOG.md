@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.7 (2014-04-10)
+-------------------
+### New feature
+- **[COOK-4507](https://tickets.opscode.com/browse/COOK-4507)** - New version of cron cookbook removed ability to use @ fields.
+
 v1.3.6 (2014-04-09)
 -------------------
 - [COOK-4337] fixing validations

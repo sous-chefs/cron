@@ -22,6 +22,8 @@ actions :create, :delete
 attribute :name, :kind_of => String, :name_attribute => true
 attribute :cookbook, :kind_of => String, :default => "cron"
 
+attribute :predefined_value, :kind_of => [String], :default => "", :callbacks => {"should be a valid predefined value" => lambda { |spec| validate_predefined_value(spec) } }
+
 attribute :minute, :kind_of => [Integer, String], :default => "*", :callbacks => {"should be a valid minute spec" => lambda { |spec| validate_numeric(spec,0,59) } }
 attribute :hour, :kind_of => [Integer, String], :default => "*", :callbacks => {"should be a valid hour spec" => lambda { |spec| validate_numeric(spec,0,23) } }
 attribute :day, :kind_of => [Integer, String], :default => "*", :callbacks => {"should be a valid day spec" => lambda { |spec| validate_numeric(spec,1,31) } }
@@ -40,6 +42,16 @@ attribute :shell, :kind_of => [String, NilClass]
 def initialize(*args)
   super
   @action = :create
+end
+
+def self.validate_predefined_value(spec)
+  return true if spec == ''
+  #Several special predefined values can substitute in the cron expression
+  if ["@reboot", "@yearly", "@annually", "@monthly", "@weekly", "@daily", "@midnight", "@hourly"].include? spec.downcase then
+    return true
+  else
+    return false
+  end
 end
 
 def self.validate_numeric(spec,min,max)
