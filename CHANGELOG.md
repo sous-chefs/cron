@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.10 (2014-04-10)
+--------------------
+- [COOK-4507] - restore ability to use @ fields
+
+
 v1.3.8 (2014-04-10)
 -------------------
 - [COOK-4544] fixing NameError exception on :delete action
