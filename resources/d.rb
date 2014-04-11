@@ -22,7 +22,7 @@ actions :create, :delete
 attribute :name, :kind_of => String, :name_attribute => true
 attribute :cookbook, :kind_of => String, :default => "cron"
 
-attribute :predefined_value, :kind_of => [String], :default => "", :callbacks => {"should be a valid predefined value" => lambda { |spec| validate_predefined_value(spec) } }
+attribute :predefined_value, :kind_of => [String], :callbacks => {"should be a valid predefined value" => lambda { |spec| validate_predefined_value(spec) } }
 
 attribute :minute, :kind_of => [Integer, String], :default => "*", :callbacks => {"should be a valid minute spec" => lambda { |spec| validate_numeric(spec,0,59) } }
 attribute :hour, :kind_of => [Integer, String], :default => "*", :callbacks => {"should be a valid hour spec" => lambda { |spec| validate_numeric(spec,0,23) } }
