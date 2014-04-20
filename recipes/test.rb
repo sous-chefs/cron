@@ -34,3 +34,20 @@ cron_d 'fixnum-job' do
   command '/bin/true'
   user 'appuser'
 end
+
+cron_d 'predefined_value_check' do
+  predefined_value '@midnight'
+  command '/bin/true'
+  user 'appuser'
+end
+
+cron_d 'nil_value_check' do
+  predefined_value nil
+  command '/bin/true'
+  user 'appuser'
+end
+
+cron_d 'no_value_check' do
+  command '/bin/true'
+  user 'appuser'
+end
