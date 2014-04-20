@@ -45,7 +45,6 @@ def initialize(*args)
 end
 
 def self.validate_predefined_value(spec)
-  return true if spec == ''
   #Several special predefined values can substitute in the cron expression
   if ["@reboot", "@yearly", "@annually", "@monthly", "@weekly", "@daily", "@midnight", "@hourly"].include? spec.downcase then
     return true
