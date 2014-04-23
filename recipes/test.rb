@@ -26,3 +26,19 @@ cron_d "bizarrely-scheduled-usage-report" do
   command "/srv/app/scripts/generate_report"
   user "appuser"
 end
+
+cron_d "test-month-usage-report" do
+  minute "0"
+  hour "6"
+  month "1"
+  command "/srv/app/scripts/generate_report"
+  user "appuser"
+end
+
+cron_d "test-weekday-usage-report" do
+  minute "45"
+  hour "13"
+  weekday "7"
+  command "/srv/app/scripts/generate_report"
+  user "appuser"
+end
