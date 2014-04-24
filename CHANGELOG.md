@@ -2,6 +2,13 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.3.12 (2014-04-23)
+--------------------
+- [COOK-4550] - cron_d resource sometimes does not print the time in the cron output
+- PR #23 fix validate month and dow
+- Updating test harness, adding specs
+
+
 v1.3.10 (2014-04-10)
 --------------------
 - [COOK-4507] - restore ability to use @ fields
