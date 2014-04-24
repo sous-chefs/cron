@@ -34,4 +34,37 @@ describe 'cron_test::default' do
       :user => 'appuser'
       )
   end
+
+  it 'creates cron_d[fixnum-job]' do
+    expect(chef_run).to create_cron_d('fixnum-job').with(
+      :minute => 0,
+      :hour => 1,
+      :day => 2,
+      :command => '/bin/true',
+      :user => 'appuser'
+      )
+  end
+
+  it 'creates cron_d[predefined_value_check]' do
+    expect(chef_run).to create_cron_d('predefined_value_check').with(
+      :predefined_value => '@midnight',
+      :command => '/bin/true',
+      :user => 'appuser'
+      )
+  end
+
+  it 'creates cron_d[nil_value_check]' do
+    expect(chef_run).to create_cron_d('nil_value_check').with(
+      :predefined_value => nil,
+      :command => '/bin/true',
+      :user => 'appuser'
+      )
+  end
+
+  it 'creates cron_d[no_value_check]' do
+    expect(chef_run).to create_cron_d('no_value_check').with(
+      :command => '/bin/true',
+      :user => 'appuser'
+      )
+  end
 end
