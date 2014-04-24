@@ -24,7 +24,7 @@ package 'cron' do
                when 'solaris2'
                  'core-os'
                when 'gentoo'
-                  'vixie-cron'
+                 'vixie-cron'
                end
 end
 
