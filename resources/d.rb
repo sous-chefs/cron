@@ -23,9 +23,9 @@ attribute :name, :kind_of => String, :name_attribute => true
 attribute :cookbook, :kind_of => String, :default => 'cron'
 
 attribute :predefined_value, :kind_of => [String], :default => nil, :callbacks => { 'should be a valid predefined value' => lambda { |spec| validate_predefined_value(spec) } }
-attribute :minute, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid minute spec' => lambda { |spec| validate_numeric(spec, 0, 59) } }
-attribute :hour, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid hour spec' => lambda { |spec| validate_numeric(spec, 0, 23) } }
-attribute :day, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid day spec' => lambda { |spec| validate_numeric(spec, 1, 31) } }
+attribute :minute, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid minute spec' => lambda { |spec| (0..59).include? spec.to_i } }
+attribute :hour, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid hour spec' => lambda { |spec| (0..23).include? spec.to_i } }
+attribute :day, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid day spec' => lambda { |spec| (1..31).include? spec.to_i } }
 attribute :month, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid month spec' => lambda { |spec| validate_month(spec) } }
 attribute :weekday, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid weekday spec' => lambda { |spec| validate_dow(spec) } }
 
@@ -51,38 +51,20 @@ def self.validate_predefined_value(spec)
   end
 end
 
-def self.validate_numeric(spec, min, max)
-#  binding.pry
-  if spec.is_a? Fixnum
-    return false unless spec >= min && spec <= max
-    return true
-  end
-
-  # Lists of invidual values, ranges, and step values all share the validity range for type
-  spec.split(/\/|-|,/).each do |x|
-    next if x == '*'
-    if x =~ /^\d+$/
-      x = x.to_i
-      return false unless x >= min && x <= max
-    else
-      return false
-    end
-  end
-  true
-end
-
 def self.validate_month(spec)
   return true if spec == '*'
+  # 1-12 are legal for months
+  return true if (1..12).include? spec.to_i
   # Named abbreviations are permitted but not as part of a range or with stepping
   return true if %w(jan feb mar apr may jun jul aug sep oct nov dec).include? spec.downcase
-  # 1-12 are legal for months
-  validate_numeric(spec, 1, 12)
+  return false
 end
 
 def self.validate_dow(spec)
   return true if spec == '*'
+  # 0-7 are legal for days of week
+  return true if (0..7).include? spec.to_i
   # Named abbreviations are permitted but not as part of a range or with stepping
   return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
-  # 0-7 are legal for days of week
-  validate_numeric(spec, 0, 7)
+  return false
 end
