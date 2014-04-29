@@ -28,7 +28,6 @@ end
 
 Note: This LWRP does not function on Solaris platforms because they do not support running jobs stored in /etc/cron.d.
 
-
 #### Attributes
 * `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
 * `predefined_value` - schedule your cron job with one of the special predefined value instead of * * * * * pattern. This correspond to @reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight or @hourly.
@@ -36,6 +35,33 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 * `user` - the user to run as. Defaults to "root".
 * `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
 
+Definitions
+-----------
+### `cron_control`
+The `cron_control` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.  
+Incude this cookbook as an dependency to your cookbook and execute the definition als follows:
+
+The following will add the user mike to the `/etc/cron.allow` file:
+
+```ruby
+cron_control 'control user mike' do
+  user   'mike'
+  action :allow
+end
+```
+
+The following will add the user john to the `/etc/cron.deny` file:
+
+```ruby
+cron_control 'control user john' do
+  user  'john'
+  action :deny  #deny is the default
+end
+```
+
+#### Attributes
+* `user` - username that you want to control.
+* `action` - `:allow` or `:deny`. :deny is the default.
 
 License & Authors
 -----------------
