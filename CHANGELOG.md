@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.4.0 (2014-05-07)
+-------------------
+- [COOK-4628] Adding cron_manage to allow or deny users
+
+
 v1.3.12 (2014-04-23)
 --------------------
 - [COOK-4550] - cron_d resource sometimes does not print the time in the cron output
