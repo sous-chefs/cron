@@ -80,9 +80,16 @@ def self.validate_month(spec)
 end
 
 def self.validate_dow(spec)
-  return true if spec == '*'
-  # Named abbreviations are permitted but not as part of a range or with stepping
-  return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
-  # 0-7 are legal for days of week
-  validate_numeric(spec, 0, 7)
+  case spec.class
+  when Fixnum
+    return validate_numeric(spec, 0, 7)
+  when String
+    return true if spec == '*'
+    # Named abbreviations are permitted but not as part of a range or with stepping
+    return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
+    # 0-7 are legal for days of week
+    return validate_numeric(spec, 0, 7)
+  else
+    return false
+  end
 end
