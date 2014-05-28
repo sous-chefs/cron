@@ -37,8 +37,8 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 
 Definitions
 -----------
-### `cron_control`
-The `cron_control` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.  
+### `cron_manage`
+The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.  
 Incude this cookbook as dependency to your cookbook and execute the definition as:
 
 The following will add the user mike to the `/etc/cron.allow` file:
