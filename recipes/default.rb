@@ -21,11 +21,15 @@ package 'cron' do
   package_name case node['platform_family']
                when 'rhel', 'fedora'
                  node['platform_version'].to_f >= 6.0 ? 'cronie' : 'vixie-cron'
+               when 'solaris2'
+                 'core-os'
+               when 'gentoo'
+                 'vixie-cron'
                end
-  action :upgrade
 end
 
 service 'cron' do
   service_name 'crond' if platform_family?('rhel', 'fedora')
+  service_name 'vixie-cron' if platform_family?('gentoo')
   action [:enable, :start]
 end
