@@ -39,6 +39,3 @@ group :development do
   gem 'fauxhai'
   gem 'pry-nav'
 end
-source :rubygems
-
-gem 'test-kitchen', '< 1.0'
