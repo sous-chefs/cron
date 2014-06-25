@@ -13,7 +13,13 @@ platforms:
   - name: ubuntu-14.04
     run_list:
       - recipe[apt::default]
-
+# My Ruby environment isn't sane, but this ought to work
+#  - name: freebsd-10.0
+#    driver_config:
+#      box: freebsd-10-wunki
+#      box_url: http://files.wunki.org/freebsd-10.0-amd64-wunki.box
+#    driver:
+#      - [".", "/vagrant", "create: true, type: :nfs"]
 suites:
 - name: default
   run_list:

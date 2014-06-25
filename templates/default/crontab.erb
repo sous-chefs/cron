@@ -1,0 +1,19 @@
+# Crontab for <%= @name %> managed by Chef. Changes will be overwritten.
+# If you really need to change the original portions of this file, edit /etc/crontab.os_source, then re-run chef
+
+#
+# Begin OS original portion
+<%= File.read( '/etc/crontab.os_source') %>
+# End OS original portion
+#
+
+
+<% Dir[ "/etc/cron.d/*" ].each do |segment| -%>
+#
+# Begin contents of <%= segment %>
+<%= File.read( segment) %>
+# End contents of <%= segment %>
+#
+
+
+<% end -%>
