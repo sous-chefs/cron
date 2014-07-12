@@ -12,6 +12,9 @@ SHELL=<%= @shell %>
 HOME=<%= @home %>
 <% end -%>
 
+<% if @comment -%>
+# <%= @comment %>
+<% end -%>
 <% if @predefined_value -%>
 <%= @predefined_value %> <%= @user %> <%= @command %>
 <% else -%>
