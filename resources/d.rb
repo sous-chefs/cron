@@ -35,6 +35,7 @@ attribute :mailto, :kind_of => [String, NilClass]
 attribute :path, :kind_of => [String, NilClass]
 attribute :home, :kind_of => [String, NilClass]
 attribute :shell, :kind_of => [String, NilClass]
+attribute :comment, :kind_of => [String, NilClass]
 
 def initialize(*args)
   super
