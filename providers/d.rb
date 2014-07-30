@@ -51,8 +51,9 @@ action :create do
                 :path => new_resource.path,
                 :home => new_resource.home,
                 :shell => new_resource.shell,
-                :comment => new_resource.comment
-    )
+                :comment => new_resource.comment,
+                :environment => new_resource.environment
+      )
     action :create
   end
   new_resource.updated_by_last_action(t.updated_by_last_action?)
