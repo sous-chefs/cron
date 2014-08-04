@@ -36,7 +36,7 @@ action :create do
   t = template "/etc/cron.d/#{new_resource.name}" do
     cookbook new_resource.cookbook
     source 'cron.d.erb'
-    mode '0644'
+    mode new_resource.mode
     variables(
                 :name => new_resource.name,
                 :predefined_value => new_resource.predefined_value,
