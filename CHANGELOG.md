@@ -1,6 +1,6 @@
-cron Cookbook CHANGELOG
-=======================
-This file is used to list changes made in each version of the cron cookbook.
+v1.4.3 (2014-09-09)
+-------------------
+- [#46] Fixes a broken case statement causing cron_d to fail
 
 v1.4.2 (2014-09-08)
 -------------------
