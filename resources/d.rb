@@ -87,7 +87,7 @@ def self.validate_month(spec)
 end
 
 def self.validate_dow(spec)
-  case spec.class
+  case spec
   when Fixnum
     return validate_numeric(spec, 0, 7)
   when String
