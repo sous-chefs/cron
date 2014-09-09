@@ -72,10 +72,9 @@ def self.validate_numeric(spec, min, max)
 end
 
 def self.validate_month(spec)
-  case spec.class
-  when Fixnum
+  if spec.class == Fixnum
     return validate_numeric(spec, 1, 12)
-  when String
+  elsif spec.class == String
     return true if spec == '*'
     # Named abbreviations are permitted but not as part of a range or with stepping
     return true if %w(jan feb mar apry may jun jul aug sep oct nov dec).include? spec.downcase
@@ -87,10 +86,9 @@ def self.validate_month(spec)
 end
 
 def self.validate_dow(spec)
-  case spec.class
-  when Fixnum
+  if spec.class == Fixnum
     return validate_numeric(spec, 0, 7)
-  when String
+  elsif spec.class == String
     return true if spec == '*'
     # Named abbreviations are permitted but not as part of a range or with stepping
     return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
