@@ -2,6 +2,11 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.4.2 (2014-09-08)
+-------------------
+#31 - Fix up validate_month for Fixnums
+#32 - Fix upvalidate_dow for Fixnums
+
 v1.4.0 (2014-05-07)
 -------------------
 - [COOK-4628] Adding cron_manage to allow or deny users
