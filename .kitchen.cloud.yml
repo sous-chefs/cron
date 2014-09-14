@@ -30,7 +30,7 @@ platforms:
 - name: centos-6.5
   driver_plugin: digitalocean
   driver_config:
-    image_id: 3102789
+    image_id: 3448641
     flavor_id: 63
     region_id: 4
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
@@ -75,7 +75,7 @@ platforms:
 - name: ubuntu-10.04
   driver_plugin: digitalocean
   driver_config:
-    image_id: 14097
+    image_id: 5566812
     flavor_id: 63
     region_id: 4
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
@@ -86,7 +86,7 @@ platforms:
 - name: ubuntu-12.04
   driver_plugin: digitalocean
   driver_config:
-    image_id: 3101045
+    image_id: 5588928
     flavor_id: 63
     region_id: 4
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
@@ -97,7 +97,7 @@ platforms:
 - name: ubuntu-14.04
   driver_plugin: digitalocean
   driver_config:
-    image_id: 3240036
+    image_id: 5141286
     flavor_id: 63
     region_id: 4
     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
