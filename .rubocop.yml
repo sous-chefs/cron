@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - Guardfile
+    - Rakefile
+
 AlignParameters:
   Enabled: false
 
@@ -24,3 +29,6 @@ CyclomaticComplexity:
 
 Lambda:
   Enabled: false
+
+PerceivedComplexity:
+  Max: 9

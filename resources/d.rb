@@ -53,7 +53,7 @@ def self.validate_predefined_value(spec)
 end
 
 def self.validate_numeric(spec, min, max)
-#  binding.pry
+  #  binding.pry
   if spec.is_a? Fixnum
     return false unless spec >= min && spec <= max
     return true
