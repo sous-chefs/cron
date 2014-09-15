@@ -1,3 +1,10 @@
+v1.5.0 (2014-09-15)
+-------------------
+- [#25] Fixes NameError exception on :delete
+- [#33] Updates README
+- [#40] Fixes local test-kitchen config
+- [#20] Implements a comment for cron_d provider
+
 v1.4.3 (2014-09-09)
 -------------------
 - [#46] Fixes a broken case statement causing cron_d to fail
