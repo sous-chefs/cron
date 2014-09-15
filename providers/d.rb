@@ -50,8 +50,9 @@ action :create do
                 :mailto => new_resource.mailto,
                 :path => new_resource.path,
                 :home => new_resource.home,
-                :shell => new_resource.shell
-      )
+                :shell => new_resource.shell,
+                :comment => new_resource.comment
+    )
     action :create
   end
   new_resource.updated_by_last_action(t.updated_by_last_action?)
