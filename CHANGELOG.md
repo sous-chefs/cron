@@ -1,3 +1,8 @@
+v1.6.0 (2014-09-24)
+-------------------
+- [36] Add environment parameter to LWRP
+- [38] Allow user to specify file permissions
+
 v1.5.0 (2014-09-15)
 -------------------
 - [#25] Fixes NameError exception on :delete
