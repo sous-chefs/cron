@@ -11,6 +11,9 @@ SHELL=<%= @shell %>
 <% if @home -%>
 HOME=<%= @home %>
 <% end -%>
+<% @environment.each do |key, val| -%>
+<%= key %>=<%= val %>
+<% end -%>
 
 <% if @comment -%>
 # <%= @comment %>
