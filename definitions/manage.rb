@@ -22,9 +22,9 @@
 define :cron_manage, :user => nil, :action => :deny do
 
   if params[:action] == :allow
-    file = "/etc/cron.allow"
+    file = '/etc/cron.allow'
   else
-    file = "/etc/cron.deny"
+    file = '/etc/cron.deny'
   end
 
   t = nil
@@ -32,14 +32,14 @@ define :cron_manage, :user => nil, :action => :deny do
     t = resources(:template => file)
   rescue Chef::Exceptions::ResourceNotFound
     t = template file do
-      source    "cron_manage.erb"
-      cookbook  "cron"
+      source 'cron_manage.erb'
+      cookbook 'cron'
       variables :users         => [],
-                :recipe_file   => (__FILE__).to_s.split("cookbooks/").last,
+                :recipe_file   => (__FILE__).to_s.split('cookbooks/').last,
                 :template_file => source.to_s
     end
   end
 
-  user = params[:user].nil? ? params[:name] : params[:user] 
+  user = params[:user].nil? ? params[:name] : params[:user]
   t.variables[:users] << user
 end
