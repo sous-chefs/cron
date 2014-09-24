@@ -37,6 +37,7 @@ attribute :home, :kind_of => [String, NilClass]
 attribute :shell, :kind_of => [String, NilClass]
 attribute :comment, :kind_of => [String, NilClass]
 attribute :environment, :kind_of => Hash, :default => {}
+attribute :mode, :kind_of => [String, Integer], :default => '0644'
 
 def initialize(*args)
   super

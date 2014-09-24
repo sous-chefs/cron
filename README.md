@@ -35,6 +35,7 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 * `user` - the user to run as. Defaults to "root".
 * `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
 * `environment` - a Hash containing additional arbitrary environment variables under which the cron job will be run (similar to the `shell` LWRP).  No default.
+* `mode` - the octal mode of the generated crontab file.  Defaults to `0644`.
 
 Definitions
 -----------
