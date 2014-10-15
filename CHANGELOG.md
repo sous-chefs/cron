@@ -1,3 +1,7 @@
+v1.6.1 (2014-10-15)
+-------------------
+- [#48] fix typo apry -> apr
+
 v1.6.0 (2014-09-24)
 -------------------
 - [36] Add environment parameter to LWRP
