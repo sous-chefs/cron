@@ -24,3 +24,6 @@ CyclomaticComplexity:
 
 Lambda:
   Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false

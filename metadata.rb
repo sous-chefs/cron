@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@opscode.com'
 license 'Apache 2.0'
 description 'Installs cron'
 
-version '1.4.1'
+version '1.6.1'
 
 recipe 'cron', 'Installs the cron package and starts the crond service.'
 

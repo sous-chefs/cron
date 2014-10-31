@@ -1,6 +1,27 @@
-cron Cookbook CHANGELOG
-=======================
-This file is used to list changes made in each version of the cron cookbook.
+v1.6.1 (2014-10-15)
+-------------------
+- [#48] fix typo apry -> apr
+
+v1.6.0 (2014-09-24)
+-------------------
+- [36] Add environment parameter to LWRP
+- [38] Allow user to specify file permissions
+
+v1.5.0 (2014-09-15)
+-------------------
+- [#25] Fixes NameError exception on :delete
+- [#33] Updates README
+- [#40] Fixes local test-kitchen config
+- [#20] Implements a comment for cron_d provider
+
+v1.4.3 (2014-09-09)
+-------------------
+- [#46] Fixes a broken case statement causing cron_d to fail
+
+v1.4.2 (2014-09-08)
+-------------------
+#31 - Fix up validate_month for Fixnums
+#32 - Fix upvalidate_dow for Fixnums
 
 v1.4.0 (2014-05-07)
 -------------------

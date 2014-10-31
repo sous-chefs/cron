@@ -31,5 +31,5 @@ platforms:
 suites:
 - name: default
   run_list:
-  - recipe[cron::test]
+  - recipe[cron_test::default]
   attributes: {}

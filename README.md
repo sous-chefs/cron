@@ -34,11 +34,13 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 * `command` - the command to run. Required.
 * `user` - the user to run as. Defaults to "root".
 * `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
+* `environment` - a Hash containing additional arbitrary environment variables under which the cron job will be run (similar to the `shell` LWRP).  No default.
+* `mode` - the octal mode of the generated crontab file.  Defaults to `0644`.
 
 Definitions
 -----------
-### `cron_control`
-The `cron_control` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.  
+### `cron_manage`
+The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.
 Incude this cookbook as dependency to your cookbook and execute the definition as:
 
 The following will add the user mike to the `/etc/cron.allow` file:

@@ -11,7 +11,13 @@ SHELL=<%= @shell %>
 <% if @home -%>
 HOME=<%= @home %>
 <% end -%>
+<% @environment.each do |key, val| -%>
+<%= key %>=<%= val %>
+<% end -%>
 
+<% if @comment -%>
+# <%= @comment %>
+<% end -%>
 <% if @predefined_value -%>
 <%= @predefined_value %> <%= @user %> <%= @command %>
 <% else -%>
