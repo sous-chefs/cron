@@ -67,4 +67,18 @@ describe 'cron_test::default' do
       :user => 'appuser'
       )
   end
+  it 'creates cron_d[multiple_commands]' do
+    expect(chef_run).to create_cron_d('multiple_commands').with(
+      :command => {
+        '/opt/pkg/lib/test1.sh' => {
+          'minute' => '10',
+          'user'   => 'root',
+        },
+        '/opt/pkg/lib/test2.sh' => {
+          'minute' => '10',
+          'hour'   => '*/3 ',
+        },
+      }
+      )
+  end
 end
