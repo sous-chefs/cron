@@ -29,7 +29,7 @@ attribute :day, :kind_of => [Integer, String], :default => '*', :callbacks => { 
 attribute :month, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid month spec' => lambda { |spec| validate_month(spec) } }
 attribute :weekday, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid weekday spec' => lambda { |spec| validate_dow(spec) } }
 
-attribute :command, :kind_of => String, :required => true
+attribute :command, :kind_of => [Hash,String], :required => true
 attribute :user, :kind_of => String, :default => 'root'
 attribute :mailto, :kind_of => [String, NilClass]
 attribute :path, :kind_of => [String, NilClass]

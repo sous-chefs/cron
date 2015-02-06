@@ -18,8 +18,20 @@ HOME=<%= @home %>
 <% if @comment -%>
 # <%= @comment %>
 <% end -%>
-<% if @predefined_value -%>
-<%= @predefined_value %> <%= @user %> <%= @command %>
+<% case @command -%>
+<% when Hash -%>
+<%   @command.each do |cmd, attributes| -%>
+<%     case attributes -%>
+<%     when Hash -%>
+<%= (attributes['minute'] rescue false) ? attributes['minute'] : '*' %> <%= (attributes['hour'] rescue false) ? attributes['hour'] : '*' %> <%= (attributes['day'] rescue false) ? attributes['day'] : '*' %> <%= (attributes['month'] rescue false) ? attributes['month'] : '*' %> <%= (attributes['weekday'] rescue false) ? attributes['weekday'] : '*' %> <%= (attributes['user'] rescue false) ? attributes['user'] : 'root' %> <%= cmd %>
+<%     else -%>
+<%= attributes %> <%= cmd %>
+<%     end -%>
+<%   end -%>
 <% else -%>
+<%   if @predefined_value -%>
+<%= @predefined_value %> <%= @user %> <%= @command %>
+<%   else -%>
 <%= @minute %> <%= @hour %> <%= @day %> <%= @month %> <%= @weekday %> <%= @user %> <%= @command %>
+<%   end -%>
 <% end -%>
