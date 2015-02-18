@@ -64,21 +64,21 @@ v1.3.2 (2014-03-27)
 v1.3.0 (2014-02-25)
 -------------------
 ### New Feature
-- **[COOK-4112](https://tickets.opscode.com/browse/COOK-4112)** - Solaris 11 support for cron
+- **[COOK-4112](https://tickets.chef.io/browse/COOK-4112)** - Solaris 11 support for cron
 
 ### Bug
-- **[COOK-3813](https://tickets.opscode.com/browse/COOK-3813)** - Add metadata for recipes in the cron cookbook
+- **[COOK-3813](https://tickets.chef.io/browse/COOK-3813)** - Add metadata for recipes in the cron cookbook
 
 
 v1.2.8
 ------
 ### Bug
-- **[COOK-3452](https://tickets.opscode.com/browse/COOK-3452)** - Add support for raspbian platform
+- **[COOK-3452](https://tickets.chef.io/browse/COOK-3452)** - Add support for raspbian platform
 
 v1.2.6
 ------
 ### Improvement
-- **[COOK-3005](https://tickets.opscode.com/browse/COOK-3005)** - Remove blankline in template
+- **[COOK-3005](https://tickets.chef.io/browse/COOK-3005)** - Remove blankline in template
 
 v1.2.4
 ------
