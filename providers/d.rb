@@ -24,8 +24,9 @@
 
 action :delete do
   f = file "/etc/cron.d/#{new_resource.name}" do
-    action :delete
+    action :nothing
   end
+  f.run_action(:delete)
   new_resource.updated_by_last_action(f.updated_by_last_action?)
 end
 
@@ -54,7 +55,8 @@ action :create do
                 :comment => new_resource.comment,
                 :environment => new_resource.environment
       )
-    action :create
+    action :nothing
   end
+  t.run_action(:create)
   new_resource.updated_by_last_action(t.updated_by_last_action?)
 end
