@@ -10,6 +10,7 @@ Platforms:
 - Debian family
 - Solaris family
 - Gentoo
+- Arch Linux family
 
 
 Resources and Providers

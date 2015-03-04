@@ -25,11 +25,14 @@ package 'cron' do
                  'core-os'
                when 'gentoo'
                  'vixie-cron'
+               when 'arch'
+                 'cronie'
                end
 end
 
 service 'cron' do
   service_name 'crond' if platform_family?('rhel', 'fedora')
   service_name 'vixie-cron' if platform_family?('gentoo')
+  service_name 'cronie' if platform_family?('arch')
   action [:enable, :start]
 end
