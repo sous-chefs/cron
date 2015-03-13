@@ -23,6 +23,7 @@ attribute :name, :kind_of => String, :name_attribute => true
 attribute :cookbook, :kind_of => String, :default => 'cron'
 
 attribute :predefined_value, :kind_of => [String], :default => nil, :callbacks => { 'should be a valid predefined value' => lambda { |spec| validate_predefined_value(spec) } }
+attribute :custom, :kind_of => [String], :default => nil, :callbacks => { 'should be a valid cron format' => lambda { |spec| validate_custom_value(spec) } }
 attribute :minute, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid minute spec' => lambda { |spec| validate_numeric(spec, 0, 59) } }
 attribute :hour, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid hour spec' => lambda { |spec| validate_numeric(spec, 0, 23) } }
 attribute :day, :kind_of => [Integer, String], :default => '*', :callbacks => { 'should be a valid day spec' => lambda { |spec| validate_numeric(spec, 1, 31) } }
@@ -52,6 +53,14 @@ def self.validate_predefined_value(spec)
   else
     return false
   end
+end
+
+def self.validate_custom_value(spec)
+  return true if spec.nil?
+
+  # pattern: * * * * *
+  values = spec.split(/\s+/)
+  return values.size == 5
 end
 
 def self.validate_numeric(spec, min, max)

@@ -53,6 +53,14 @@ describe 'cron_test::default' do
       )
   end
 
+  it 'creates cron_d[custom_check]' do
+    expect(chef_run).to create_cron_d('custom_check').with(
+      :custom => '*/2 2 1 20 *',
+      :command => '/bin/true',
+      :user => 'appuser'
+      )
+  end
+
   it 'creates cron_d[nil_value_check]' do
     expect(chef_run).to create_cron_d('nil_value_check').with(
       :predefined_value => nil,

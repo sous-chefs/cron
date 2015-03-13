@@ -62,6 +62,13 @@ cron_d 'predefined_value_check' do
   action :create
 end
 
+cron_d 'custom_check' do
+  custom '*/2 2 1 20 *'
+  command '/bin/true'
+  user 'appuser'
+  action :create
+end
+
 cron_d 'nil_value_check' do
   predefined_value nil
   command '/bin/true'
