@@ -1,5 +1,10 @@
 ---
-driver_plugin: vagrant
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
 driver_config:
   require_chef_omnibus: true
 
@@ -11,10 +16,10 @@ platforms:
   run_list:
   - recipe[apt]
 
-- name: ubuntu-10.04
+- name: ubuntu-14.04
   driver_config:
-    box: opscode-ubuntu-10.04
-    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
+    box: opscode-ubuntu-14.04
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-14.04_provisionerless.box
   run_list:
   - recipe[apt]
 
