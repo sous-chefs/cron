@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'cron_test::default' do
   let(:chef_run) do
-    ChefSpec::Runner.new.converge('cron_test::default')
+    ChefSpec::ServerRunner.new.converge('cron_test::default')
   end
 
   it 'creates cron_d[bizarrely-scheduled-usage-report]' do
