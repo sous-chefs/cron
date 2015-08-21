@@ -52,7 +52,7 @@ fill out our
 
 ## Ticket Tracker (GitHub Issues)
 
-The [ticket tracker](https://github.com/opscode-cookbooks/aws/issues) is
+The [ticket tracker](https://github.com/opscode-cookbooks/cron/issues) is
 the most important documentation for the code base. It provides significant
 historical information, such as:
 
