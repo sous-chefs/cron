@@ -1,5 +1,9 @@
 cron Cookbook
 =============
+
+[![Build Status](https://travis-ci.org/opscode-cookbooks/cron.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/cron)
+[![Cookbook Version](https://img.shields.io/cookbook/v/cron.svg)](https://supermarket.chef.io/cookbooks/cron)
+
 Installs the cron package and starts the crond service.
 
 
@@ -67,10 +71,10 @@ end
 
 License & Authors
 -----------------
-- Author:: Joshua Timberman (joshua@chef.io)
+- Author:: Joshua Timberman (<joshua@chef.io>)
 
 ```text
-Copyright 2010-2012, Chef Software, Inc.
+Copyright 2010-2015, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
