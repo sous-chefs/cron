@@ -1,29 +1,24 @@
+AllCops:
+  Exclude:
+    - vendor/**/*
+
 AlignParameters:
   Enabled: false
-
 Encoding:
   Enabled: false
-
 ClassLength:
   Enabled: false
-
 MethodLength:
   Enabled: false
-
 LineLength:
   Max: 330
-
 HashSyntax:
   EnforcedStyle: hash_rockets
-
 Documentation:
   Enabled: false
-
 CyclomaticComplexity:
   Max: 10
-
 Lambda:
   Enabled: false
-
 Metrics/PerceivedComplexity:
   Enabled: false
