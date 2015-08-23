@@ -30,7 +30,29 @@ cron_d 'daily-usage-report' do
 end
 ```
 
+To specify multiple command into the resource, the following schema should be followed:
+
+```ruby
+default[:pkg][:cron_d] = {
+  '/opt/pkg/lib/test1.sh' => {
+    'minute' => '10',
+    'hour'   => '5',
+    'user'   => 'root',
+  },
+  '/opt/pkg/lib/test2.sh' => {
+    'minute' => '10',
+    'hour'   => '*/3 ',
+    'user'   => 'root',
+  },
+}
+cron_d 'daily-usage-report' do
+  command node[:pkg][:cron_d]
+end
+
+```
+
 Note: This LWRP does not function on Solaris platforms because they do not support running jobs stored in /etc/cron.d.
+
 
 #### Attributes
 * `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".

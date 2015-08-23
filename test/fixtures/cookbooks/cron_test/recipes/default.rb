@@ -74,3 +74,18 @@ cron_d 'no_value_check' do
   user 'appuser'
   action :create
 end
+
+multiple_commands = {
+  '/opt/pkg/lib/test1.sh' => {
+    'minute' => '10',
+    'user'   => 'root',
+  },
+  '/opt/pkg/lib/test2.sh' => {
+    'minute' => '10',
+    'hour'   => '*/3 ',
+  },
+}
+
+cron_d 'multiple_commands' do
+  command multiple_commands
+end
