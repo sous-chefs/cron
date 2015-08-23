@@ -35,6 +35,7 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 #### Attributes
 * `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
 * `predefined_value` - schedule your cron job with one of the special predefined value instead of * * * * * pattern. This correspond to @reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight or @hourly.
+* `custom` - schedule your cron job with raw * * * * * pattern. This correspond to @reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight or @hourly.
 * `command` - the command to run. Required.
 * `user` - the user to run as. Defaults to "root".
 * `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
