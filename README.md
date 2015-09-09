@@ -1,7 +1,7 @@
 cron Cookbook
 =============
 
-[![Build Status](https://travis-ci.org/opscode-cookbooks/cron.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/cron)
+[![Build Status](https://travis-ci.org/chef-cookbooks/cron.svg?branch=master)](https://travis-ci.org/chef-cookbooks/cron)
 [![Cookbook Version](https://img.shields.io/cookbook/v/cron.svg)](https://supermarket.chef.io/cookbooks/cron)
 
 Installs the cron package and starts the crond service.
