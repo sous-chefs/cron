@@ -1,5 +1,9 @@
 cron Cookbook
 =============
+
+[![Build Status](https://travis-ci.org/chef-cookbooks/cron.svg?branch=master)](https://travis-ci.org/chef-cookbooks/cron)
+[![Cookbook Version](https://img.shields.io/cookbook/v/cron.svg)](https://supermarket.chef.io/cookbooks/cron)
+
 Installs the cron package and starts the crond service.
 
 
@@ -30,7 +34,7 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 
 #### Attributes
 * `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
-* `predefined_value` - schedule your cron job with one of the special predefined value instead of * * * * * pattern. This correspond to @reboot, @yearly, @annually, @monthly, @weekly, @daily, @midnight or @hourly.
+* `predefined_value` - schedule your cron job with one of the special predefined value instead of * * * * * pattern. This correspond to `"@reboot"`, `"@yearly"`, `"@annually"`, `"@monthly"`, `"@weekly"`, `"@daily"`, `"@midnight"` or `"@hourly"`.
 * `command` - the command to run. Required.
 * `user` - the user to run as. Defaults to "root".
 * `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
@@ -67,10 +71,10 @@ end
 
 License & Authors
 -----------------
-- Author:: Joshua Timberman (joshua@opscode.com)
+- Author:: Joshua Timberman (<joshua@chef.io>)
 
 ```text
-Copyright 2010-2012, Opscode, Inc.
+Copyright 2010-2015, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
