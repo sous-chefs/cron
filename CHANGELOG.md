@@ -20,8 +20,8 @@ v1.4.3 (2014-09-09)
 
 v1.4.2 (2014-09-08)
 -------------------
-#31 - Fix up validate_month for Fixnums
-#32 - Fix upvalidate_dow for Fixnums
+- [#31] Fix up validate_month for Fixnums
+- [#32] Fix upvalidate_dow for Fixnums
 
 v1.4.0 (2014-05-07)
 -------------------
