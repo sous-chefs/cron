@@ -12,8 +12,6 @@ MethodLength:
   Enabled: false
 LineLength:
   Max: 330
-HashSyntax:
-  EnforcedStyle: hash_rockets
 Documentation:
   Enabled: false
 CyclomaticComplexity:
