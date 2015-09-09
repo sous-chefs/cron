@@ -12,5 +12,5 @@ recipe 'cron', 'Installs the cron package and starts the crond service.'
   supports os
 end
 
-source_url 'https://github.com/opscode-cookbooks/cron' if respond_to?(:source_url)
-issues_url 'https://github.com/opscode-cookbooks/cron/issues' if respond_to?(:source_url)
+source_url 'https://github.com/freeebsd-cookbooks/cron' if respond_to?(:source_url)
+issues_url 'https://github.com/freebsd-cookbooks/cron/issues' if respond_to?(:issues_url)
