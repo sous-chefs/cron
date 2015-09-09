@@ -62,7 +62,7 @@ def self.validate_numeric(spec, min, max)
   end
 
   # Lists of invidual values, ranges, and step values all share the validity range for type
-  spec.split(/\/|-|,/).each do |x|
+  spec.split(%r{\/|-|,}).each do |x|
     next if x == '*'
     if x =~ /^\d+$/
       x = x.to_i
