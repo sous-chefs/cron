@@ -19,8 +19,7 @@
 # limitations under the License.
 #
 
-define :cron_manage, :user => nil, :action => :deny do
-
+define :cron_manage, user: nil, action: :deny do
   if params[:action] == :allow
     file = '/etc/cron.allow'
   else
@@ -29,14 +28,14 @@ define :cron_manage, :user => nil, :action => :deny do
 
   t = nil
   begin
-    t = resources(:template => file)
+    t = resources(template: file)
   rescue Chef::Exceptions::ResourceNotFound
     t = template file do
       source 'cron_manage.erb'
       cookbook 'cron'
-      variables :users         => [],
-                :recipe_file   => (__FILE__).to_s.split('cookbooks/').last,
-                :template_file => source.to_s
+      variables users: [],
+                recipe_file: (__FILE__).to_s.split('cookbooks/').last,
+                template_file: source.to_s
     end
   end
 
