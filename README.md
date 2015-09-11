@@ -72,7 +72,7 @@ end
 
 License & Authors
 -----------------
-- Author:: Joshua Timberman (<joshua@chef.io>)
+- Author:: Cookbook Engineering Team (<cookbooks@chef.io>)
 
 ```text
 Copyright 2010-2015, Chef Software, Inc.
