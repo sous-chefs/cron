@@ -9,12 +9,19 @@ Installs the cron package and starts the crond service.
 
 Requirements
 ------------
-Platforms:
+
+### Platforms
 - RHEL family
 - Debian family
 - Solaris family
 - Arch Linux family
 - Gentoo
+
+### Chef
+Chef 11+
+
+### Cookbooks
+- none
 
 
 Resources and Providers
