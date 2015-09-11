@@ -3,7 +3,7 @@ maintainer 'Chef Software, Inc.'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
 description 'Installs cron'
-
+long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.6.1'
 
 recipe 'cron', 'Installs the cron package and starts the crond service.'
@@ -12,5 +12,5 @@ recipe 'cron', 'Installs the cron package and starts the crond service.'
   supports os
 end
 
-source_url 'https://github.com/freeebsd-cookbooks/cron' if respond_to?(:source_url)
-issues_url 'https://github.com/freebsd-cookbooks/cron/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/chef-cookbooks/cron' if respond_to?(:source_url)
+issues_url 'https://github.com/chef-cookbooks/cron/issues' if respond_to?(:issues_url)
