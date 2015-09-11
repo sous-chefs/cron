@@ -18,7 +18,7 @@ Requirements
 - Gentoo
 
 #### Chef
-Chef 11+
+- Chef 11+
 
 #### Cookbooks
 - none
