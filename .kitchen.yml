@@ -5,14 +5,15 @@ provisioner:
   name: chef_zero
 
 platforms:
+  - name: centos-6.7
+  - name: centos-7.1
   - name: ubuntu-12.04
     run_list:
-    - recipe[apt::default]
+      - recipe[apt::default]
   - name: ubuntu-14.04
     run_list:
-    - recipe[apt::default]
-  - name: centos-5.11
-  - name: centos-6.7
+      - recipe[apt::default]
+
 suites:
 - name: default
   run_list:

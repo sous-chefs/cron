@@ -2,7 +2,7 @@
 # Cookbook Name:: cron
 # Recipe:: default
 #
-# Copyright 2010-2013, Chef Software, Inc.
+# Copyright 2010-2015, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ package 'cron' do
                  node['platform_version'].to_f >= 6.0 ? 'cronie' : 'vixie-cron'
                when 'solaris2'
                  'core-os'
+               when 'arch'
+                 'cronie'
                when 'gentoo'
                  'vixie-cron'
                end
@@ -31,5 +33,6 @@ end
 service 'cron' do
   service_name 'crond' if platform_family?('rhel', 'fedora')
   service_name 'vixie-cron' if platform_family?('gentoo')
+  service_name 'cronie' if platform_family?('arch')
   action [:enable, :start]
 end

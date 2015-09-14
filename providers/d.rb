@@ -2,7 +2,7 @@
 # Cookbook Name:: cron
 # Provider:: d
 #
-# Copyright 2010-2013, Chef Software, Inc.
+# Copyright 2010-2015, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -38,22 +38,22 @@ action :create do
     source 'cron.d.erb'
     mode new_resource.mode
     variables(
-                :name => new_resource.name,
-                :predefined_value => new_resource.predefined_value,
-                :minute => new_resource.minute,
-                :hour => new_resource.hour,
-                :day => new_resource.day,
-                :month => new_resource.month,
-                :weekday => new_resource.weekday,
-                :command => new_resource.command,
-                :user => new_resource.user,
-                :mailto => new_resource.mailto,
-                :path => new_resource.path,
-                :home => new_resource.home,
-                :shell => new_resource.shell,
-                :comment => new_resource.comment,
-                :environment => new_resource.environment
-      )
+      name: new_resource.name,
+      predefined_value: new_resource.predefined_value,
+      minute: new_resource.minute,
+      hour: new_resource.hour,
+      day: new_resource.day,
+      month: new_resource.month,
+      weekday: new_resource.weekday,
+      command: new_resource.command,
+      user: new_resource.user,
+      mailto: new_resource.mailto,
+      path: new_resource.path,
+      home: new_resource.home,
+      shell: new_resource.shell,
+      comment: new_resource.comment,
+      environment: new_resource.environment
+    )
     action :create
   end
   new_resource.updated_by_last_action(t.updated_by_last_action?)
