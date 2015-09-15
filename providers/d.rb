@@ -25,14 +25,14 @@
 action :delete do
   f = file "/etc/cron.d/#{new_resource.name}" do
     action :delete
+    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
   new_resource.updated_by_last_action(f.updated_by_last_action?)
 end
 
 action :create do
-  if node['platform_family'] == 'solaris2'
-    fail 'Solaris does not support cron jobs in /etc/cron.d'
-  end
+  # We should be able to switch emulate_cron.d on for Solaris, but I don't have a Solaris box to verify
+  fail 'Solaris does not support cron jobs in /etc/cron.d' if node['platform_family'] == 'solaris2'
   t = template "/etc/cron.d/#{new_resource.name}" do
     cookbook new_resource.cookbook
     source 'cron.d.erb'
@@ -55,6 +55,7 @@ action :create do
       environment: new_resource.environment
     )
     action :create
+    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
   new_resource.updated_by_last_action(t.updated_by_last_action?)
 end
