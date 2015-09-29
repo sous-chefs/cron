@@ -5,19 +5,27 @@ AllCops:
 
 AlignParameters:
   Enabled: false
+ClassLength:
+  Enabled: false
+CyclomaticComplexity:
+  Enabled: false
+Documentation:
+  Enabled: false
 Encoding:
   Enabled: false
-ClassLength:
+Style/FileName:
+  Enabled: false
+LineLength:
   Enabled: false
 MethodLength:
   Enabled: false
-LineLength:
-  Max: 330
-Documentation:
+Metrics/AbcSize:
   Enabled: false
-CyclomaticComplexity:
-  Max: 10
-Lambda:
+PerceivedComplexity:
   Enabled: false
-Metrics/PerceivedComplexity:
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/FileName:
   Enabled: false
