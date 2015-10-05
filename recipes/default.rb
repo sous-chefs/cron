@@ -21,8 +21,8 @@ node['cron']['package_name'].each do |pkg|
   package pkg
 end
 
-unless node['cron']['service_name'].nil?
-  service_name node['cron']['service_name']
+service 'cron' do
+  service_name node['cron']['service_name'] unless node['cron']['service_name'].nil?
   action [:enable, :start]
 end
 
