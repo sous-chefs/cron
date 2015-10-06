@@ -23,12 +23,12 @@ default_action :create
 attribute :name, kind_of: String, name_attribute: true
 attribute :cookbook, kind_of: String, default: 'cron'
 
-attribute :predefined_value, kind_of: [String], default: nil, callbacks: { 'should be a valid predefined value' => lambda { |spec| validate_predefined_value(spec) } }
-attribute :minute, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid minute spec' => lambda { |spec| validate_numeric(spec, 0, 59) } }
-attribute :hour, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid hour spec' => lambda { |spec| validate_numeric(spec, 0, 23) } }
-attribute :day, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid day spec' => lambda { |spec| validate_numeric(spec, 1, 31) } }
-attribute :month, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid month spec' => lambda { |spec| validate_month(spec) } }
-attribute :weekday, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid weekday spec' => lambda { |spec| validate_dow(spec) } }
+attribute :predefined_value, kind_of: [String], default: nil, callbacks: { 'should be a valid predefined value' => ->(spec) { validate_predefined_value(spec) } }
+attribute :minute, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid minute spec' => ->(spec) { validate_numeric(spec, 0, 59) } }
+attribute :hour, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid hour spec' => ->(spec) { validate_numeric(spec, 0, 23) } }
+attribute :day, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid day spec' => ->(spec) { validate_numeric(spec, 1, 31) } }
+attribute :month, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid month spec' => ->(spec) { validate_month(spec) } }
+attribute :weekday, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid weekday spec' => ->(spec) { validate_dow(spec) } }
 
 attribute :command, kind_of: String, required: true
 attribute :user, kind_of: String, default: 'root'
