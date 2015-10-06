@@ -27,3 +27,13 @@ elsif %w(debian ubuntu).include?(os[:family])
     it { should be_installed }
   end
 end
+
+if os[:family] == 'freebsd'
+  describe file('/etc/crontab') do
+    its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
+  end
+else
+  describe file('/etc/cron.d/nil_value_check') do
+    its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
+  end
+end
