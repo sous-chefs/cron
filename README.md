@@ -20,7 +20,7 @@ Installs the cron package and starts the crond service.
 
 ## Resources and Providers
 ### `cron_d`
-The `cron_d` LWRP can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
+The `cron_d` Custom Resource can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
 
 ```ruby
 cron_d 'daily-usage-report' do
@@ -33,7 +33,7 @@ end
 
 Note: FreeBSD does not support cron.d functionality, so it is emulated.  cron fragments are created in /etc/cron.d, then they are concatenated together into /etc/crontab. FreeBSD puts some core OS functionality into /etc/crontab, so the original file is copied to /etc/crontab.os_source, and included in the concatenation.
 
-Note: This LWRP does not function on Solaris platforms because they do not support running jobs stored in /etc/cron.d. Any Solaris users are welcome to test the emulate_cron.d functionation that was implemented for FreeBSD.  See defaults/attributes.rb for more information.
+Note: This Custom Resource does not function on Solaris platforms because they do not support running jobs stored in /etc/cron.d. Any Solaris users are welcome to test the emulate_cron.d functionation that was implemented for FreeBSD.  See defaults/attributes.rb for more information.
 
 #### Attributes
 - `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
