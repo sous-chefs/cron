@@ -26,8 +26,6 @@ end
 group :kitchen_cloud do
   gem 'kitchen-digitalocean'
   gem 'kitchen-ec2'
-  gem 'kitchen-joyent'
-  gem 'kitchen-gce'
 end
 
 group :development do
@@ -39,6 +37,5 @@ group :development do
   gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'fauxhai'
   gem 'pry-nav'
 end
