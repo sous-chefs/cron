@@ -74,3 +74,13 @@ cron_d 'no_value_check' do
   user 'appuser'
   action :create
 end
+
+file '/etc/cron.d/delete_cron' do
+  content '* * * * * appuser /bin/true'
+end
+
+cron_d 'delete_cron' do
+  command '/bin/true'
+  user 'appuser'
+  action :delete
+end
