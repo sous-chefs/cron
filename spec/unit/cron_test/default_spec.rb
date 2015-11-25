@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe 'cron_test::default' do
-  let(:chef_run) do
-    ChefSpec::ServerRunner.new.converge('cron_test::default')
+  cached(:chef_run) { ChefSpec::SoloRunner.converge('cron_test::default') }
+
+  it 'enables and starts service[cron]' do
+    expect(chef_run).to enable_service('cron')
+    expect(chef_run).to start_service('cron')
   end
 
   it 'creates cron_d[bizarrely-scheduled-usage-report]' do
@@ -66,6 +69,10 @@ describe 'cron_test::default' do
       command: '/bin/true',
       user: 'appuser'
     )
+  end
+
+  it 'creates file[/etc/cron.d/delete_cron]' do
+    expect(chef_run).to create_file('/etc/cron.d/delete_cron')
   end
 
   it 'deletes cron_d[delete_cron]' do
