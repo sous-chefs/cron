@@ -35,6 +35,12 @@ action :create do
   new_resource.updated_by_last_action(r.updated_by_last_action?)
 end
 
+action :create_if_missing do
+  r = create_template
+  r.action :create_if_missing
+  new_resource.updated_by_last_action(r.updated_by_last_action?)
+end
+
 def create_template
   template "/etc/cron.d/#{new_resource.name}" do
     cookbook new_resource.cookbook

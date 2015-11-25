@@ -61,8 +61,8 @@ describe 'cron_test::default' do
     )
   end
 
-  it 'creates cron_d[no_value_check]' do
-    expect(chef_run).to create_cron_d('no_value_check').with(
+  it 'creates if missing cron_d[no_value_check]' do
+    expect(chef_run).to create_if_missing_cron_d('no_value_check').with(
       command: '/bin/true',
       user: 'appuser'
     )
