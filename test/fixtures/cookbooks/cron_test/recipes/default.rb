@@ -63,7 +63,6 @@ cron_d 'predefined_value_check' do
 end
 
 cron_d 'nil_value_check' do
-  predefined_value nil
   command '/bin/true'
   user 'appuser'
   action :create
@@ -72,5 +71,15 @@ end
 cron_d 'no_value_check' do
   command '/bin/true'
   user 'appuser'
-  action :create
+  action :create_if_missing
+end
+
+file '/etc/cron.d/delete_cron' do
+  content '* * * * * appuser /bin/true'
+end
+
+cron_d 'delete_cron' do
+  command '/bin/true'
+  user 'appuser'
+  action :delete
 end

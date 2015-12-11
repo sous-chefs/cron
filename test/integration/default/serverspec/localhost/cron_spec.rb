@@ -33,4 +33,7 @@ else
   describe file('/etc/cron.d/nil_value_check') do
     its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
   end
+  describe file('/etc/cron.d/delete_cron') do
+    it { should_not exist }
+  end
 end
