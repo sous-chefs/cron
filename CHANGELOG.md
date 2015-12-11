@@ -2,6 +2,10 @@ cron Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the cron cookbook.
 
+v1.7.1 (2015-12-11)
+-------------------
+- #65 - adding action create_if_missing
+
 v1.7.0 (2015-10-05)
 -------------------
 - Added Arch Linux support
