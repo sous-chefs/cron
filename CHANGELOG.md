@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.7.2 (2015-12-14)
+- Fixed the inability to delete a cron job without specifying the command. Expanded tests to cover this scenario and the create_if_missing action
+
 ## v1.7.1 (2015-12-11)
 - #65 - Added action create_if_missing for cron jobs you want to create, but not modify later
 
