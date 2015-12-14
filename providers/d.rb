@@ -17,31 +17,26 @@
 # limitations under the License.
 #
 
-# This pattern is used to make the providers compatible with Chef 10,
-# which does not support use_inline_resources.
-#
-# FIXME: replace when Chef 12 is released.
+use_inline_resources
 
 action :delete do
-  r = create_template
-  r.action :delete
-  new_resource.updated_by_last_action(r.updated_by_last_action?)
+  file "/etc/cron.d/#{new_resource.name}" do
+    action :delete
+    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
+  end
 end
 
 action :create do
   # We should be able to switch emulate_cron.d on for Solaris, but I don't have a Solaris box to verify
   fail 'Solaris does not support cron jobs in /etc/cron.d' if node['platform_family'] == 'solaris2'
-  r = create_template
-  new_resource.updated_by_last_action(r.updated_by_last_action?)
+  create_template(:create)
 end
 
 action :create_if_missing do
-  r = create_template
-  r.action :create_if_missing
-  new_resource.updated_by_last_action(r.updated_by_last_action?)
+  create_template(:create_if_missing)
 end
 
-def create_template
+def create_template(create_action)
   template "/etc/cron.d/#{new_resource.name}" do
     cookbook new_resource.cookbook
     source 'cron.d.erb'
@@ -63,7 +58,7 @@ def create_template
       comment: new_resource.comment,
       environment: new_resource.environment
     )
-    action :create
+    action create_action
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
 end
