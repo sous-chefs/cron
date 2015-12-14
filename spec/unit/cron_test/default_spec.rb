@@ -28,16 +28,6 @@ describe 'cron_test::default' do
     )
   end
 
-  it 'creates cron_d[test-month-usage-report]' do
-    expect(chef_run).to create_cron_d('test-weekday-usage-report').with(
-      minute: '45',
-      hour: '13',
-      weekday: '7',
-      command: '/srv/app/scripts/generate_report',
-      user: 'appuser'
-    )
-  end
-
   it 'creates cron_d[fixnum-job]' do
     expect(chef_run).to create_cron_d('fixnum-job').with(
       minute: 0,
