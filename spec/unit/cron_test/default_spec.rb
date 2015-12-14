@@ -76,9 +76,6 @@ describe 'cron_test::default' do
   end
 
   it 'deletes cron_d[delete_cron]' do
-    expect(chef_run).to delete_cron_d('delete_cron').with(
-      command: '/bin/true',
-      user: 'appuser'
-    )
+    expect(chef_run).to delete_cron_d('delete_cron')
   end
 end

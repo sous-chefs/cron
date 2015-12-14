@@ -30,6 +30,10 @@ if os[:family] == 'freebsd'
     its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
   end
 else
+  # make sure the :create_if_missing didn't overwrite the :create
+  describe file('/etc/cron.d/test-weekday-usage-report') do
+    its(:content) { should match /\/srv\/app\/scripts\/generate_report/ }
+  end
   describe file('/etc/cron.d/nil_value_check') do
     its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
   end

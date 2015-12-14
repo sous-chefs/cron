@@ -74,12 +74,19 @@ cron_d 'no_value_check' do
   action :create_if_missing
 end
 
+cron_d 'test-weekday-usage-report' do
+  minute '1'
+  hour '1'
+  weekday '1'
+  command '/this/should/never/run'
+  user 'appuser'
+  action :create_if_missing
+end
+
 file '/etc/cron.d/delete_cron' do
   content '* * * * * appuser /bin/true'
 end
 
 cron_d 'delete_cron' do
-  command '/bin/true'
-  user 'appuser'
   action :delete
 end
