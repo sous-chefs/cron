@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.7.3 (2015-12-20)
+- Re-release to remove DS Store file that snuck in
+
 ## v1.7.2 (2015-12-14)
 - Fixed the inability to delete a cron job without specifying the command. Expanded tests to cover this scenario and the create_if_missing action
 
