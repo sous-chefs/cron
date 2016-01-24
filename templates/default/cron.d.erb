@@ -19,7 +19,7 @@ HOME=<%= @home %>
 # <%= @comment %>
 <% end -%>
 <% if @predefined_value -%>
-<%= @predefined_value %> <%= @user %> <%= @command %>
+<% if @enabled == false %># <% end %><%= @predefined_value %> <%= @user %> <%= @command %>
 <% else -%>
-<%= @minute %> <%= @hour %> <%= @day %> <%= @month %> <%= @weekday %> <%= @user %> <%= @command %>
+<% if @enabled == false %># <% end %><%= @minute %> <%= @hour %> <%= @day %> <%= @month %> <%= @weekday %> <%= @user %> <%= @command %>
 <% end -%>

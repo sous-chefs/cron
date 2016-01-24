@@ -39,6 +39,7 @@ attribute :shell, kind_of: [String, NilClass]
 attribute :comment, kind_of: [String, NilClass]
 attribute :environment, kind_of: Hash, default: {}
 attribute :mode, kind_of: [String, Integer], default: '0644'
+attribute :enabled, kind_of: [TrueClass, FalseClass], default: true
 
 def self.validate_predefined_value(spec)
   return true if spec.nil?

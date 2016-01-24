@@ -56,7 +56,8 @@ def create_template(create_action)
       home: new_resource.home,
       shell: new_resource.shell,
       comment: new_resource.comment,
-      environment: new_resource.environment
+      environment: new_resource.environment,
+      enabled: new_resource.enabled
     )
     action create_action
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']

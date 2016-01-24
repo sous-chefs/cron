@@ -43,6 +43,7 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 - `mailto`, `path`, `home`, `shell` - set the corresponding environment variables in the cron.d file. No default.
 - `environment` - a Hash containing additional arbitrary environment variables under which the cron job will be run (similar to the `shell` LWRP).  No default.
 - `mode` - the octal mode of the generated crontab file.  Defaults to `0644`.
+- `enabled` - enable/disable cronjob. ie disabled  `"# * * * * root /usr/local/bin/somescript"`, default `true` 
 
 ## Definitions
 ### `cron_manage`
