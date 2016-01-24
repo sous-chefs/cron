@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.8.0 (2016-01-24)
+- Addd 'enabled' attribute to 'd' provider
+
 ## v1.7.3 (2015-12-20)
 - Re-release to remove DS Store file that snuck in
 
