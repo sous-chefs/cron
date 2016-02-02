@@ -19,7 +19,7 @@
 
 use_inline_resources
 
-sanitized_filename = new_resource.name.gsub('.', '-')
+sanitized_filename = new_resource.name.tr('.', '-')
 
 action :delete do
   file "/etc/cron.d/#{sanitized_filename}" do
