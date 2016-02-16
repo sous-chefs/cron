@@ -20,11 +20,11 @@
 #
 
 define :cron_manage, user: nil, action: :deny do
-  if params[:action] == :allow
-    file = '/etc/cron.allow'
-  else
-    file = '/etc/cron.deny'
-  end
+  file = if params[:action] == :allow
+           '/etc/cron.allow'
+         else
+           '/etc/cron.deny'
+         end
 
   t = nil
   begin
@@ -34,7 +34,7 @@ define :cron_manage, user: nil, action: :deny do
       source 'cron_manage.erb'
       cookbook 'cron'
       variables users: [],
-                recipe_file: (__FILE__).to_s.split('cookbooks/').last,
+                recipe_file: __FILE__.to_s.split('cookbooks/').last,
                 template_file: source.to_s
     end
   end

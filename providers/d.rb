@@ -30,7 +30,7 @@ end
 
 action :create do
   # We should be able to switch emulate_cron.d on for Solaris, but I don't have a Solaris box to verify
-  fail 'Solaris does not support cron jobs in /etc/cron.d' if node['platform_family'] == 'solaris2'
+  raise 'Solaris does not support cron jobs in /etc/cron.d' if node['platform_family'] == 'solaris2'
   create_template(:create)
 end
 
