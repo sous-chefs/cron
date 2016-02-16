@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.7.4 (2016-02-16)
+- Sanitize cron job names in the custom resource to replace '.' with '-'
+
 ## v1.7.3 (2015-12-20)
 - Re-release to remove DS Store file that snuck in
 
