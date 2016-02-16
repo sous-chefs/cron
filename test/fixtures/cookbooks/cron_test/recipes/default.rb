@@ -74,6 +74,12 @@ cron_d 'no_value_check' do
   action :create_if_missing
 end
 
+cron_d 'job.with.periods' do
+  command '/bin/true'
+  user 'appuser'
+  action :create_if_missing
+end
+
 cron_d 'test-weekday-usage-report' do
   minute '1'
   hour '1'

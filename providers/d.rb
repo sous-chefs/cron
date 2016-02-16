@@ -19,10 +19,8 @@
 
 use_inline_resources
 
-sanitized_filename = new_resource.name.tr('.', '-')
-
 action :delete do
-  file "/etc/cron.d/#{sanitized_filename}" do
+  file "/etc/cron.d/#{sanitized_name}" do
     action :delete
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
@@ -38,13 +36,17 @@ action :create_if_missing do
   create_template(:create_if_missing)
 end
 
+def sanitized_name
+  new_resource.name.tr('.', '-')
+end
+
 def create_template(create_action)
-  template "/etc/cron.d/#{sanitized_filename}" do
+  template "/etc/cron.d/#{sanitized_name}" do
     cookbook new_resource.cookbook
     source 'cron.d.erb'
     mode new_resource.mode
     variables(
-      name: sanitized_filename,
+      name: sanitized_name,
       predefined_value: new_resource.predefined_value,
       minute: new_resource.minute,
       hour: new_resource.hour,

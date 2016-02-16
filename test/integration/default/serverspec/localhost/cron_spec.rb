@@ -40,4 +40,7 @@ else
   describe file('/etc/cron.d/delete_cron') do
     it { should_not exist }
   end
+  describe file('/etc/cron.d/job-with-periods') do
+    it { should exist }
+  end
 end
