@@ -80,7 +80,8 @@ cron_d 'job.with.periods' do
   action :create_if_missing
 end
 
-cron_d 'test-weekday-usage-report' do
+cron_d 'test-weekday-usage-report2' do
+  name 'test-weekday-usage-report'
   minute '1'
   hour '1'
   weekday '1'
