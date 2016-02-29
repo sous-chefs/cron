@@ -17,29 +17,6 @@
 # limitations under the License.
 #
 
-actions :create, :create_if_missing, :delete
-default_action :create
-
-attribute :name, kind_of: String, name_attribute: true
-attribute :cookbook, kind_of: String, default: 'cron'
-
-attribute :predefined_value, kind_of: [String], default: nil, callbacks: { 'should be a valid predefined value' => ->(spec) { validate_predefined_value(spec) } }
-attribute :minute, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid minute spec' => ->(spec) { validate_numeric(spec, 0, 59) } }
-attribute :hour, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid hour spec' => ->(spec) { validate_numeric(spec, 0, 23) } }
-attribute :day, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid day spec' => ->(spec) { validate_numeric(spec, 1, 31) } }
-attribute :month, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid month spec' => ->(spec) { validate_month(spec) } }
-attribute :weekday, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid weekday spec' => ->(spec) { validate_dow(spec) } }
-
-attribute :command, kind_of: String, required: true
-attribute :user, kind_of: String, default: 'root'
-attribute :mailto, kind_of: [String, NilClass]
-attribute :path, kind_of: [String, NilClass]
-attribute :home, kind_of: [String, NilClass]
-attribute :shell, kind_of: [String, NilClass]
-attribute :comment, kind_of: [String, NilClass]
-attribute :environment, kind_of: Hash, default: {}
-attribute :mode, kind_of: [String, Integer], default: '0644'
-
 def self.validate_predefined_value(spec)
   return true if spec.nil?
   # Several special predefined values can substitute in the cron expression
@@ -97,3 +74,26 @@ def self.validate_dow(spec)
     return false
   end
 end
+
+actions :create, :create_if_missing, :delete
+default_action :create
+
+attribute :name, kind_of: String, name_attribute: true
+attribute :cookbook, kind_of: String, default: 'cron'
+
+attribute :predefined_value, kind_of: [String], default: nil, callbacks: { 'should be a valid predefined value' => ->(spec) { validate_predefined_value(spec) } }
+attribute :minute, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid minute spec' => ->(spec) { validate_numeric(spec, 0, 59) } }
+attribute :hour, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid hour spec' => ->(spec) { validate_numeric(spec, 0, 23) } }
+attribute :day, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid day spec' => ->(spec) { validate_numeric(spec, 1, 31) } }
+attribute :month, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid month spec' => ->(spec) { validate_month(spec) } }
+attribute :weekday, kind_of: [Integer, String], default: '*', callbacks: { 'should be a valid weekday spec' => ->(spec) { validate_dow(spec) } }
+
+attribute :command, kind_of: String, required: true
+attribute :user, kind_of: String, default: 'root'
+attribute :mailto, kind_of: [String, NilClass]
+attribute :path, kind_of: [String, NilClass]
+attribute :home, kind_of: [String, NilClass]
+attribute :shell, kind_of: [String, NilClass]
+attribute :comment, kind_of: [String, NilClass]
+attribute :environment, kind_of: Hash, default: {}
+attribute :mode, kind_of: [String, Integer], default: '0644'
