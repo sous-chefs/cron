@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.7.5 (2016-03-01)
+- Fixes '* is not valid value for validate_numeric' errors
+
 ## v1.7.4 (2016-02-16)
 - Sanitize cron job names in the custom resource to replace '.' with '-'
 
