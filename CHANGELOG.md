@@ -1,6 +1,11 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v2.0.0 (2015-10-16)
+- Converted LWRP `d` to the new Chef 12.5 custom resource format
+- Raised the minimum supported Chef release to 12.0
+- Added additional Serverspec examples
+
 ## v1.7.5 (2016-03-01)
 - Fixes '* is not valid value for validate_numeric' errors
 
