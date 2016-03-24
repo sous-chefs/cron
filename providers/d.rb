@@ -20,6 +20,13 @@
 use_inline_resources
 
 action :delete do
+  # cleanup the legacy named job if it exists
+  file "legacy named cron.d file" do
+    path "/etc/cron.d/#{new_resource.name}"
+    action :delete
+    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
+  end
+
   file "/etc/cron.d/#{sanitized_name}" do
     action :delete
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
@@ -41,6 +48,14 @@ def sanitized_name
 end
 
 def create_template(create_action)
+  # cleanup the legacy named job if it exists
+  file "legacy named cron.d file" do
+    path "/etc/cron.d/#{new_resource.name}"
+    action :delete
+    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
+    only_if { new_resource.name != sanitized_name }
+  end
+
   template "/etc/cron.d/#{sanitized_name}" do
     cookbook new_resource.cookbook
     source 'cron.d.erb'
