@@ -21,7 +21,7 @@ use_inline_resources
 
 action :delete do
   # cleanup the legacy named job if it exists
-  file "legacy named cron.d file" do
+  file 'legacy named cron.d file' do
     path "/etc/cron.d/#{new_resource.name}"
     action :delete
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
@@ -49,7 +49,7 @@ end
 
 def create_template(create_action)
   # cleanup the legacy named job if it exists
-  file "legacy named cron.d file" do
+  file 'legacy named cron.d file' do
     path "/etc/cron.d/#{new_resource.name}"
     action :delete
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
