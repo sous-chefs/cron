@@ -1,6 +1,9 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## v1.7.6 (2016-03-23)
+- Cleanup the cron.d jobs with the non-santized filenames to prevent duplicate job jobs if cron < 1.7.4 was ever run on the node
+
 ## v1.7.5 (2016-03-01)
 - Fixes '* is not valid value for validate_numeric' errors
 
