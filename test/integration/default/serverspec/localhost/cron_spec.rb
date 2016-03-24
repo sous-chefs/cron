@@ -43,4 +43,9 @@ else
   describe file('/etc/cron.d/job-with-periods') do
     it { should exist }
   end
+
+  # we created this in the test recipe and the provider should clean it up
+  describe file('/etc/cron.d/job.with.periods') do
+    it { should_not exist }
+  end
 end
