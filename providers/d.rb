@@ -2,7 +2,7 @@
 # Cookbook Name:: cron
 # Provider:: d
 #
-# Copyright 2010-2015, Chef Software, Inc.
+# Copyright 2010-2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ end
 
 def create_template(create_action)
   # cleanup the legacy named job if it exists
-  file 'legacy named cron.d file' do
+  file "#{new_resource.name} legacy named cron.d file" do
     path "/etc/cron.d/#{new_resource.name}"
     action :delete
     notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
