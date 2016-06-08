@@ -20,6 +20,8 @@ default['cron']['service_name'] = case node['platform_family']
                                     'cronie'
                                   when 'gentoo'
                                     'vixie-cron'
+                                  else
+                                    'cron'
                                   end
 
 # I think we can add Solaris to this list, but I don't have a Solaris box to test on.
