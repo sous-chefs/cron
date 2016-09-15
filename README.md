@@ -13,7 +13,7 @@ Installs the cron package and starts the crond service.
 - FreeBSD
 
 ### Chef
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 - none
