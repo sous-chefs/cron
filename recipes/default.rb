@@ -17,9 +17,7 @@
 # limitations under the License.
 #
 
-node['cron']['package_name'].each do |pkg|
-  package pkg
-end
+package node['cron']['package_name']
 
 service 'cron' do
   service_name node['cron']['service_name'] unless node['cron']['service_name'].nil?
