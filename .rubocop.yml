@@ -1,14 +1,17 @@
-# Offense count: 3
+# rubocop todo:
+#
 Lint/AmbiguousRegexpLiteral:
   Exclude:
     - 'test/integration/default/serverspec/localhost/cron_spec.rb'
 
-# Offense count: 3
+# Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Exclude:
     - 'resources/d.rb'
 
-# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
+# SupportedStyles: slashes, percent_r, mixed
 Style/RegexpLiteral:
   Exclude:
     - 'test/integration/default/serverspec/localhost/cron_spec.rb'
