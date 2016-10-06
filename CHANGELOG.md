@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 3.0.0 (2016-10-06)
+- Remove support for Arch and Gentoo as we lack the ability to test these platforms
+- Fix the installation of the core-os package on Solaris
+
 ## 2.0.0 (2016-09-15)
 - Update supported OS releases in the readme
 - Switch to kitchen-dokken and test on more platforms
