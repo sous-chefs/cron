@@ -24,6 +24,9 @@ platforms:
     run_list: apt::default
   - name: freebsd-9.3
   - name: freebsd-10.3
+  - name: solaris-11.3
+    driver:
+      box: chef/solaris-11.3 # private box
 
 suites:
 - name: default
