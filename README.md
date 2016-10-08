@@ -19,9 +19,9 @@ Installs the cron package and starts the crond service.
 
 ### Cookbooks
 
-- none
+- compat_resource
 
-## Resources and Providers
+## Resources
 
 ### `cron_d`
 
@@ -54,7 +54,7 @@ Note: This LWRP does not function on Solaris platforms because they do not suppo
 
 ### `cron_manage`
 
-The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files. Incude this cookbook as dependency to your cookbook and execute the definition as:
+The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files. Include this cookbook as dependency to your cookbook and execute the definition as:
 
 The following will add the user mike to the `/etc/cron.allow` file:
 
