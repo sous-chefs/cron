@@ -25,7 +25,7 @@ Installs the cron package and starts the crond service.
 
 ### `cron_d`
 
-The `cron_d` LWRP can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
+The `cron_d` custom resource can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
 
 ```ruby
 cron_d 'daily-usage-report' do
@@ -36,11 +36,11 @@ cron_d 'daily-usage-report' do
 end
 ```
 
-Note: FreeBSD does not support cron.d functionality, so it is emulated. cron fragments are created in /etc/cron.d, then they are concatenated together into /etc/crontab. FreeBSD puts some core OS functionality into /etc/crontab, so the original file is copied to /etc/crontab.os_source, and included in the concatenation.
+Note: FreeBSD does not support cron.d functionality, so this cookbook emulates that functionality. cron fragments are created in /etc/cron.d, then they are concatenated together into /etc/crontab. FreeBSD puts some core OS functionality into /etc/crontab, so the original file is copied to /etc/crontab.os_source, and included in the concatenation.
 
-Note: This LWRP does not function on Solaris platforms because they do not support running jobs stored in /etc/cron.d. Any Solaris users are welcome to test the emulate_cron.d functionality that was implemented for FreeBSD. See defaults/attributes.rb for more information.
+Note: This resource does not function on Solaris platforms due to lack of support for /etc/cron.d. It's possible that the emulation method used in FreeBSD could be modified to work on Solaris as well given help from the community.
 
-#### Attributes
+## Attributes
 
 - `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
 - `predefined_value` - schedule your cron job with one of the special predefined value instead of _**_ * pattern. This correspond to `"@reboot"`, `"@yearly"`, `"@annually"`, `"@monthly"`, `"@weekly"`, `"@daily"`, `"@midnight"` or `"@hourly"`.
@@ -60,7 +60,7 @@ The following will add the user mike to the `/etc/cron.allow` file:
 
 ```ruby
 cron_manage 'mike' do
-  user   'mike'
+  user 'mike'
   action :allow
 end
 ```
@@ -69,12 +69,12 @@ The following will add the user john to the `/etc/cron.deny` file:
 
 ```ruby
 cron_manage 'john' do
-  user  'john'  #optional, resource name will be used if not specified.
+  user 'john'  #optional, resource name will be used if not specified.
   action :deny  #optional, deny is the default
 end
 ```
 
-#### Attributes
+## Attributes
 
 - `user` - username that you want to control (optional).
 - `action` - `:allow` or `:deny`. :deny is the default.
