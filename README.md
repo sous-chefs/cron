@@ -12,6 +12,7 @@ Installs the cron package and starts the crond service.
 - Debian family
 - Solaris family
 - FreeBSD
+- SUSE family
 
 ### Chef
 

@@ -18,12 +18,15 @@ platforms:
     run_list: yum::dnf_yum_compat
   - name: opensuse-13.2
   - name: opensuse-leap-42.1
-  - name: solaris-11.3
+  - name: sles-12-sp1
     driver:
-      box: chef/solaris-11.3 # private box
+      box: chef/sles-12-sp1-x86_64 # private box
   - name: solaris-10.11
     driver:
       box: chef/solaris-10.11 # private box
+  - name: solaris-11.3
+    driver:
+      box: chef/solaris-11.3 # private box
   - name: ubuntu-12.04
     run_list: apt::default
   - name: ubuntu-14.04

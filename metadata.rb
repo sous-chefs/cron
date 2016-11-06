@@ -8,7 +8,7 @@ version '3.0.0'
 
 recipe 'cron', 'Installs the cron package and starts the crond service.'
 
-%w(ubuntu debian fedora redhat centos scientific oracle amazon smartos omnios solaris2 freebsd zlinux).each do |os|
+%w(ubuntu debian fedora redhat centos scientific oracle amazon smartos omnios solaris2 freebsd zlinux opensuse suse opensuseleap).each do |os|
   supports os
 end
 
