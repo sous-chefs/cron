@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: cron
+# Cookbook:: cron
 # Resource:: d
 #
-# Copyright 2008-2016, Chef Software, Inc.
+# Copyright:: 2008-2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -115,7 +115,7 @@ class << self
 
   def validate_numeric(spec, min, max)
     #  binding.pry
-    if spec.is_a? Fixnum
+    if spec.is_a? Integer
       return false unless spec >= min && spec <= max
       return true
     end
@@ -134,30 +134,30 @@ class << self
   end
 
   def validate_month(spec)
-    if spec.class == Fixnum
-      return validate_numeric(spec, 1, 12)
+    if spec.class == Integer
+      validate_numeric(spec, 1, 12)
     elsif spec.class == String
       return true if spec == '*'
       # Named abbreviations are permitted but not as part of a range or with stepping
       return true if %w(jan feb mar apr may jun jul aug sep oct nov dec).include? spec.downcase
       # 1-12 are legal for months
-      return validate_numeric(spec, 1, 12)
+      validate_numeric(spec, 1, 12)
     else
-      return false
+      false
     end
   end
 
   def validate_dow(spec)
-    if spec.class == Fixnum
-      return validate_numeric(spec, 0, 7)
+    if spec.class == Integer
+      validate_numeric(spec, 0, 7)
     elsif spec.class == String
       return true if spec == '*'
       # Named abbreviations are permitted but not as part of a range or with stepping
       return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
       # 0-7 are legal for days of week
-      return validate_numeric(spec, 0, 7)
+      validate_numeric(spec, 0, 7)
     else
-      return false
+      false
     end
   end
 end
