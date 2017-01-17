@@ -12,7 +12,7 @@ recipe 'cron', 'Installs the cron package and starts the crond service.'
   supports os
 end
 
-depends 'compat_resource', '>= 12.14.7'
+depends 'compat_resource', '>= 12.16.3'
 
 source_url 'https://github.com/chef-cookbooks/cron'
 issues_url 'https://github.com/chef-cookbooks/cron/issues'
