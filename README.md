@@ -16,11 +16,11 @@ Installs the cron package and starts the crond service.
 
 ### Chef
 
-- Chef 12.1+
+- Chef 12.5+
 
 ### Cookbooks
 
-- compat_resource
+- none
 
 ## Resources
 
