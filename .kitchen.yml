@@ -11,10 +11,9 @@ platforms:
     run_list: apt::default
   - name: debian-8.6
     run_list: apt::default
-  - name: freebsd-9.3
   - name: freebsd-10.3
+  - name: freebsd-11.0
   - name: fedora-25
-  - name: opensuse-13.2
   - name: opensuse-leap-42.2
   - name: sles-12-sp1
     driver:
