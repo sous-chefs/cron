@@ -8,10 +8,10 @@ version '3.0.0'
 
 recipe 'cron', 'Installs the cron package and starts the crond service.'
 
-%w(ubuntu debian fedora redhat centos scientific oracle amazon smartos omnios solaris2 freebsd zlinux).each do |os|
+%w(ubuntu debian fedora redhat centos scientific oracle amazon smartos omnios solaris2 freebsd zlinux opensuse suse opensuseleap).each do |os|
   supports os
 end
 
 source_url 'https://github.com/chef-cookbooks/cron'
 issues_url 'https://github.com/chef-cookbooks/cron/issues'
-chef_version '>= 12.1'
+chef_version '>= 12.5' if respond_to?(:chef_version)
