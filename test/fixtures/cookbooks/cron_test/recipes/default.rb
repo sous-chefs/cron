@@ -64,6 +64,15 @@ cron_d 'fixnum-job' do
   action :create
 end
 
+cron_d 'fixnum-weekdayjob' do
+  minute 0
+  hour 1
+  weekday 2
+  command '/bin/true'
+  user 'appuser'
+  action :create
+end
+
 cron_d 'predefined_value_check' do
   predefined_value '@midnight'
   command '/bin/true'
