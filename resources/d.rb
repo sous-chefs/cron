@@ -20,12 +20,28 @@
 property :name, String, name_property: true
 property :cookbook, String, default: 'cron'
 
-property :predefined_value, [String], callbacks: { 'should be a valid predefined value' => ->(spec) { validate_predefined_value(spec) } }
-property :minute, [Integer, String], default: '*', callbacks: { 'should be a valid minute spec' => ->(spec) { validate_numeric(spec, 0, 59) } }
-property :hour, [Integer, String], default: '*', callbacks: { 'should be a valid hour spec' => ->(spec) { validate_numeric(spec, 0, 23) } }
-property :day, [Integer, String], default: '*', callbacks: { 'should be a valid day spec' => ->(spec) { validate_numeric(spec, 1, 31) } }
-property :month, [Integer, String], default: '*', callbacks: { 'should be a valid month spec' => ->(spec) { validate_month(spec) } }
-property :weekday, [Integer, String], default: '*', callbacks: { 'should be a valid weekday spec' => ->(spec) { validate_dow(spec) } }
+property :predefined_value, [String], callbacks: {
+  'should be a valid predefined value' => lambda do |spec|
+    ::Cron::Helpers.validate_predefined_value(spec)
+  end,
+}
+property :minute, [Integer, String], default: '*', callbacks: {
+  'should be a valid minute spec' => lambda do |spec|
+    ::Cron::Helpers.validate_numeric(spec, 0, 59)
+  end,
+}
+property :hour, [Integer, String], default: '*', callbacks: {
+  'should be a valid hour spec' => ->(spec) { ::Cron::Helpers.validate_numeric(spec, 0, 23) },
+}
+property :day, [Integer, String], default: '*', callbacks: {
+  'should be a valid day spec' => ->(spec) { ::Cron::Helpers.validate_numeric(spec, 1, 31) },
+}
+property :month, [Integer, String], default: '*', callbacks: {
+  'should be a valid month spec' => ->(spec) { ::Cron::Helpers.validate_month(spec) },
+}
+property :weekday, [Integer, String], default: '*', callbacks: {
+  'should be a valid weekday spec' => ->(spec) { ::Cron::Helpers.validate_dow(spec) },
+}
 
 property :command, String, required: true
 property :user, String, default: 'root'
@@ -98,66 +114,6 @@ action_class do
       )
       action create_action
       notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
-    end
-  end
-end
-
-class << self
-  def validate_predefined_value(spec)
-    return true if spec.nil?
-    # Several special predefined values can substitute in the cron expression
-    if ['@reboot', '@yearly', '@annually', '@monthly', '@weekly', '@daily', '@midnight', '@hourly'].include? spec.downcase
-      return true
-    else
-      return false
-    end
-  end
-
-  def validate_numeric(spec, min, max)
-    #  binding.pry
-    if spec.is_a? Integer
-      return false unless spec >= min && spec <= max
-      return true
-    end
-
-    # Lists of invidual values, ranges, and step values all share the validity range for type
-    spec.split(%r{\/|-|,}).each do |x|
-      next if x == '*'
-      if x =~ /^\d+$/
-        x = x.to_i
-        return false unless x >= min && x <= max
-      else
-        return false
-      end
-    end
-    true
-  end
-
-  def validate_month(spec)
-    if spec.class == Integer
-      validate_numeric(spec, 1, 12)
-    elsif spec.class == String
-      return true if spec == '*'
-      # Named abbreviations are permitted but not as part of a range or with stepping
-      return true if %w(jan feb mar apr may jun jul aug sep oct nov dec).include? spec.downcase
-      # 1-12 are legal for months
-      validate_numeric(spec, 1, 12)
-    else
-      false
-    end
-  end
-
-  def validate_dow(spec)
-    if spec.class == Integer
-      validate_numeric(spec, 0, 7)
-    elsif spec.class == String
-      return true if spec == '*'
-      # Named abbreviations are permitted but not as part of a range or with stepping
-      return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
-      # 0-7 are legal for days of week
-      validate_numeric(spec, 0, 7)
-    else
-      false
     end
   end
 end
