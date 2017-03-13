@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'cron_test::default' do
-  cached(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04').converge('cron_test::default') }
+describe 'test::default' do
+  cached(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04').converge('test::default') }
 
   it 'enables and starts service[cron]' do
     expect(chef_run).to enable_service('cron')
