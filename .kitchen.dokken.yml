@@ -77,4 +77,4 @@ platforms:
 suites:
 - name: default
   run_list:
-  - recipe[cron_test::default]
+  - recipe[test::default]

@@ -1,5 +1,5 @@
 #
-# Cookbook:: cron_test
+# Cookbook:: test
 # Recipe:: test
 #
 # Copyright:: 2008-2017, Chef Software, Inc
