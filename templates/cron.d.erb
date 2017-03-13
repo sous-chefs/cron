@@ -12,7 +12,7 @@ SHELL=<%= @shell %>
 HOME=<%= @home %>
 <% end -%>
 <% @environment.each do |key, val| -%>
-<%= key %>=<%= val %>
+<%= key %>=<%= val.to_s.shellescape %>
 <% end -%>
 
 <% if @comment -%>

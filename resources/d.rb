@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+require 'shellwords'
+
 property :name, String, name_property: true
 property :cookbook, String, default: 'cron'
 
