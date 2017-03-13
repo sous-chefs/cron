@@ -20,7 +20,7 @@ Installs the cron package and starts the crond service.
 
 ### Cookbooks
 
-- none
+- compat_resource
 
 ## Resources
 
