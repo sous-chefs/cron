@@ -18,7 +18,7 @@ class Cron
     def self.validate_numeric(spec, min, max)
       return true if spec == '*'
       #  binding.pry
-      if spec.is_a? Integer
+      if spec.respond_to? :to_int
         return false unless spec >= min && spec <= max
         return true
       end
@@ -35,9 +35,9 @@ class Cron
 
     def self.validate_month(spec)
       return true if spec == '*'
-      if spec.class == Integer
+      if spec.respond_to? :to_int
         validate_numeric(spec, 1, 12)
-      elsif spec.class == String
+      elsif spec.respond_to? :to_str
         return true if spec == '*'
         # Named abbreviations are permitted but not as part of a range or with stepping
         return true if %w(jan feb mar apr may jun jul aug sep oct nov dec).include? spec.downcase
@@ -50,9 +50,9 @@ class Cron
 
     def self.validate_dow(spec)
       return true if spec == '*'
-      if spec.class == Integer
+      if spec.respond_to? :to_int
         validate_numeric(spec, 0, 7)
-      elsif spec.class == String
+      elsif spec.respond_to? :to_str
         return true if spec == '*'
         # Named abbreviations are permitted but not as part of a range or with stepping
         return true if %w(sun mon tue wed thu fri sat).include? spec.downcase
