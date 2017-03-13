@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
 description 'Installs cron'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '4.0.0'
+version '4.1.0'
 
 recipe 'cron', 'Installs the cron package and starts the crond service.'
 

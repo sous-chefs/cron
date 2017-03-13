@@ -1,6 +1,15 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 4.1.0 (2017-03-13)
+
+- Move files out of default dirs since only Chef 11 required that
+- Fix the namespacing and cookstyle violations in validators (Fixes #80)
+- Add compat_resource depends so that Chef 12.5 is really supported
+- Remove the hostname from templates
+- Rename the test cookbook to test
+- make env variables safe if they span lines
+
 ## 4.0.0 (2017-03-07)
 
 - Convert cron_d from a LWRP to a custom resource, which raises the requirement for chef-client to 12.5+
