@@ -79,7 +79,7 @@ action :delete do
   end
 end
 
-action_class do
+action_class.class_eval do
   def sanitized_name
     new_resource.name.tr('.', '-')
   end
