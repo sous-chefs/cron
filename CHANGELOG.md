@@ -1,6 +1,11 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 4.1.1 (2017-04-11)
+
+- Ensure compatibility with Chef 12.5-12.6
+- chef-client 13 amazon linux fix
+
 ## 4.1.0 (2017-03-13)
 
 - Move files out of default dirs since only Chef 11 required that
