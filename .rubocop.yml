@@ -1,17 +1,7 @@
-# rubocop todo:
-#
-Lint/AmbiguousRegexpLiteral:
+Style/IdenticalConditionalBranches:
   Exclude:
     - 'test/integration/default/serverspec/localhost/cron_spec.rb'
 
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'resources/d.rb'
-
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
 Style/RegexpLiteral:
   Exclude:
     - 'test/integration/default/serverspec/localhost/cron_spec.rb'
