@@ -1,6 +1,11 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 4.1.2 (2017-05-30)
+
+- Remove class_eval usage
+- Require Chef 12.1 not 12.5 since we use compat_resource
+
 ## 4.1.1 (2017-04-11)
 
 - Ensure compatibility with Chef 12.5-12.6
