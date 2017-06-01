@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 4.1.3 (2017-06-01)
+
+- Converting integration testing to InSpec
+
 ## 4.1.2 (2017-05-30)
 
 - Remove class_eval usage
