@@ -1,7 +1,7 @@
 Style/IdenticalConditionalBranches:
   Exclude:
-    - 'test/integration/default/serverspec/localhost/cron_spec.rb'
+    - 'test/integration/default/inspec/cron_spec.rb'
 
 Style/RegexpLiteral:
   Exclude:
-    - 'test/integration/default/serverspec/localhost/cron_spec.rb'
+    - 'test/integration/default/inspec/cron_spec.rb'
