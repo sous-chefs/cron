@@ -1,13 +1,8 @@
 # check packages and services on RHEL/Debian families
 if %w(debian ubuntu fedora redhat).include?(os[:family])
   if %w(redhat fedora).include?(os[:family])
-    if os[:release].to_i >= 6
-      service_name = 'crond'
-      package_name = 'cronie'
-    else
-      service_name = 'crond'
-      package_name = 'vixie-cron'
-    end
+    service_name = 'crond'
+    package_name = os[:release].to_i >= 6 ? 'cronie' : 'vixie-cron'
   elsif %w(debian ubuntu).include?(os[:family])
     service_name = 'cron'
     package_name = 'cron'
@@ -30,10 +25,10 @@ if os[:family] == 'freebsd'
 else
   # make sure the :create_if_missing didn't overwrite the :create
   describe file('/etc/cron.d/test-weekday-usage-report') do
-    its(:content) { should match /\/srv\/app\/scripts\/generate_report/ }
+    its(:content) { should match(/\/srv\/app\/scripts\/generate_report/) }
   end
   describe file('/etc/cron.d/nil_value_check') do
-    its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
+    its(:content) { should match(/\* \* \* \* \* appuser \/bin\/true/) }
   end
   describe file('/etc/cron.d/delete_cron') do
     it { should_not exist }
