@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 # check packages and services on RHEL/Debian families
 if %w(debian ubuntu fedora redhat).include?(os[:family])
   if %w(redhat fedora).include?(os[:family])
