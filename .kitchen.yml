@@ -5,6 +5,9 @@ provisioner:
   name: chef_zero
   deprecations_as_errors: true
 
+verifier:
+  name: inspec
+
 platforms:
   - name: centos-6.9
   - name: centos-7.3
