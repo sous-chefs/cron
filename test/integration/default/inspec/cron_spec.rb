@@ -20,7 +20,7 @@ end
 
 if os[:family] == 'freebsd'
   describe file('/etc/crontab') do
-    its(:content) { should match /\* \* \* \* \* appuser \/bin\/true/ }
+    its(:content) { should match(/\* \* \* \* \* appuser \/bin\/true/) }
   end
 else
   # make sure the :create_if_missing didn't overwrite the :create
