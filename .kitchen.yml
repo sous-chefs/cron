@@ -33,3 +33,6 @@ suites:
 - name: default
   run_list:
   - recipe[test::default]
+- name: manage
+  run_list:
+  - recipe[test::manage]
