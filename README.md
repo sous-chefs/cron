@@ -28,15 +28,6 @@ Installs the cron package and starts the crond service.
 
 The `cron_d` custom resource can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
 
-```ruby
-cron_d 'daily-usage-report' do
-  minute  0
-  hour    23
-  command '/srv/app/scripts/daily_report'
-  user    'appuser'
-end
-```
-
 Note: FreeBSD does not support cron.d functionality, so this cookbook emulates that functionality. cron fragments are created in /etc/cron.d, then they are concatenated together into /etc/crontab. FreeBSD puts some core OS functionality into /etc/crontab, so the original file is copied to /etc/crontab.os_source, and included in the concatenation.
 
 Note: This resource does not function on Solaris platforms due to lack of support for /etc/cron.d. It's possible that the emulation method used in FreeBSD could be modified to work on Solaris as well given help from the community.
@@ -51,11 +42,29 @@ Note: This resource does not function on Solaris platforms due to lack of suppor
 - `environment` - a Hash containing additional arbitrary environment variables under which the cron job will be run (similar to the `shell` LWRP). No default.
 - `mode` - the octal mode of the generated crontab file. Defaults to `0644`.
 
+#### Examples
+
+```ruby
+cron_d 'daily-usage-report' do
+  minute  0
+  hour    23
+  command '/srv/app/scripts/daily_report'
+  user    'appuser'
+end
+```
+
 ## Definitions
 
 ### `cron_manage`
 
 The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files. Include this cookbook as dependency to your cookbook and execute the definition as:
+
+#### Properties
+
+- `user` - username that you want to control (optional).
+- `action` - `:allow` or `:deny`. :deny is the default.
+
+#### Examples
 
 The following will add the user mike to the `/etc/cron.allow` file:
 
@@ -74,11 +83,6 @@ cron_manage 'john' do
   action :deny  #optional, deny is the default
 end
 ```
-
-#### Properties
-
-- `user` - username that you want to control (optional).
-- `action` - `:allow` or `:deny`. :deny is the default.
 
 ## License & Authors
 
