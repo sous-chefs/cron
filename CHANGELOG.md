@@ -1,6 +1,12 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 4.2.0 (2017-10-23)
+
+- Activate RANDOMDELAY in cron.d template
+- Add support and testing for SLES 11
+- Update and improve testing setup
+
 ## 4.1.3 (2017-06-01)
 
 - Converting integration testing to InSpec
