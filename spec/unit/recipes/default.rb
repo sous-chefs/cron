@@ -30,7 +30,7 @@ platforms = [
     platform: 'suse',
     version: '12.3',
     package: 'cronie',
-  }
+  },
 ]
 
 platforms.each do |p|
