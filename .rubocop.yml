@@ -1,7 +1,3 @@
-Style/IdenticalConditionalBranches:
-  Exclude:
-    - 'test/integration/default/inspec/cron_spec.rb'
-
 Style/RegexpLiteral:
   Exclude:
     - 'test/integration/default/inspec/cron_spec.rb'
