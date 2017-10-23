@@ -14,6 +14,4 @@ end
 
 source_url 'https://github.com/chef-cookbooks/cron'
 issues_url 'https://github.com/chef-cookbooks/cron/issues'
-chef_version '>= 12.1' if respond_to?(:chef_version)
-
-depends 'compat_resource'
+chef_version '>= 12.7' if respond_to?(:chef_version)
