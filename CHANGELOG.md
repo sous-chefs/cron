@@ -1,6 +1,12 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 5.0.0 (2017-10-23)
+
+- Require Chef 12.7+ and remove compat_resource dependency
+- Improve the readme layout
+- Update Travis CI testing to test Chef 12/13 and also Debian 9
+
 ## 4.2.0 (2017-10-23)
 
 - Activate RANDOMDELAY in cron.d template
