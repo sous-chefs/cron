@@ -41,7 +41,7 @@ Note: FreeBSD does not support cron.d functionality, so this cookbook emulates t
 
 Note: This resource does not function on Solaris platforms due to lack of support for /etc/cron.d. It's possible that the emulation method used in FreeBSD could be modified to work on Solaris as well given help from the community.
 
-## Attributes
+#### Properties
 
 - `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
 - `predefined_value` - schedule your cron job with one of the special predefined value instead of _**_ * pattern. This correspond to `"@reboot"`, `"@yearly"`, `"@annually"`, `"@monthly"`, `"@weekly"`, `"@daily"`, `"@midnight"` or `"@hourly"`.
@@ -75,7 +75,7 @@ cron_manage 'john' do
 end
 ```
 
-## Attributes
+#### Properties
 
 - `user` - username that you want to control (optional).
 - `action` - `:allow` or `:deny`. :deny is the default.
