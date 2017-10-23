@@ -19,8 +19,10 @@
 default['cron']['package_name'] = case node['platform_family']
                                   when 'debian'
                                     ['cron']
-                                  when 'amazon', 'rhel', 'fedora', 'suse'
-                                    node['platform_version'].to_f >= 6.0 ? ['cronie'] : ['vixie-cron']
+                                  when 'amazon', 'rhel', 'fedora'
+                                    node['platform_version'].to_i >= 6 ? ['cronie'] : ['vixie-cron']
+                                  when 'suse'
+                                    node['platform_version'].to_i >= 12 ? ['cronie'] : ['cron']
                                   when 'solaris2'
                                     'core-os'
                                   else
