@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 5.0.1 (2017-11-16)
+
+- Remove the redundant name property in the cron_d resource
+
 ## 5.0.0 (2017-10-23)
 
 - Require Chef 12.7+ and remove compat_resource dependency
