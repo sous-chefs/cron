@@ -19,7 +19,6 @@
 
 require 'shellwords'
 
-property :name, String, name_property: true
 property :cookbook, String, default: 'cron'
 
 property :predefined_value, [String], callbacks: {
