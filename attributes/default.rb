@@ -25,12 +25,14 @@ default['cron']['package_name'] = case node['platform_family']
                                     node['platform_version'].to_i >= 12 ? ['cronie'] : ['cron']
                                   when 'solaris2'
                                     'core-os'
+                                  when 'pld'
+                                    'cronie'
                                   else
                                     []
                                   end
 
 default['cron']['service_name'] = case node['platform_family']
-                                  when 'amazon', 'rhel', 'fedora'
+                                  when 'amazon', 'rhel', 'fedora', 'pld'
                                     'crond'
                                   else
                                     'cron'
