@@ -8,17 +8,17 @@ platforms = [
   },
   {
     platform: 'centos',
-    version: '5.11',
-    package: 'vixie-cron',
+    version: '6.9',
+    package: 'cronie',
   },
   {
     platform: 'centos',
-    version: '6.7',
+    version: '7.4.1708',
     package: 'cronie',
   },
   {
     platform: 'amazon',
-    version: '2017.03',
+    version: '2017.09',
     package: 'cronie',
   },
   {
@@ -35,7 +35,7 @@ platforms = [
 
 platforms.each do |p|
   describe "cron::default on #{p[:platform]} #{p[:version]}" do
-    cached(:chef_run) { ChefSpec::ServerRunner.new(platform: p[:platform], version: p[:version]).converge('cron::default') }
+    cached(:chef_run) { ChefSpec::SoloRunner.new(platform: p[:platform], version: p[:version]).converge('cron::default') }
 
     it 'installs the necessary cron package' do
       expect(chef_run).to install_package(p[:package])
