@@ -23,27 +23,3 @@ service 'cron' do
   service_name node['cron']['service_name']
   action [:enable, :start]
 end
-
-# Some platforms (FreeBSD, Solaris) don't support /etc/cron.d, so we have to fake it.
-if node['cron']['emulate_cron.d']
-  directory '/etc/cron.d' do
-    mode '0755'
-    owner 'root'
-    group node['root_group']
-  end
-
-  remote_file '/etc/crontab.os_source' do
-    source 'file:///etc/crontab'
-    owner 'root'
-    group node['root_group']
-    mode '0444'
-    action :create_if_missing
-  end
-
-  template '/etc/crontab' do
-    source 'crontab.erb'
-    owner 'root'
-    group node['root_group']
-    mode '0644'
-  end
-end

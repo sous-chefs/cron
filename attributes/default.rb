@@ -37,12 +37,3 @@ default['cron']['service_name'] = case node['platform_family']
                                   else
                                     'cron'
                                   end
-
-# I think we can add Solaris to this list, but I don't have a Solaris box to test on.
-# If so, remove the fail() in providers/d.rb
-default['cron']['emulate_cron.d'] = case node['platform_family']
-                                    when 'freebsd'
-                                      true
-                                    else
-                                      false
-                                    end
