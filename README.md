@@ -28,10 +28,6 @@ Installs the cron package and starts the crond service.
 
 The `cron_d` custom resource can be used to manage files in `/etc/cron.d`. It supports the same interface as Chef's built-in `cron` resource:
 
-Note: FreeBSD does not support cron.d functionality, so this cookbook emulates that functionality. cron fragments are created in /etc/cron.d, then they are concatenated together into /etc/crontab. FreeBSD puts some core OS functionality into /etc/crontab, so the original file is copied to /etc/crontab.os_source, and included in the concatenation.
-
-Note: This resource does not function on Solaris platforms due to lack of support for /etc/cron.d. It's possible that the emulation method used in FreeBSD could be modified to work on Solaris as well given help from the community.
-
 #### Properties
 
 - `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".

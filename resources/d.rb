@@ -2,7 +2,7 @@
 # Cookbook:: cron
 # Resource:: d
 #
-# Copyright:: 2008-2017, Chef Software, Inc.
+# Copyright:: 2008-2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -55,8 +55,6 @@ property :environment, Hash, default: {}
 property :mode, [String, Integer], default: '0644'
 
 action :create do
-  # We should be able to switch emulate_cron.d on for Solaris, but I don't have a Solaris box to verify
-  raise 'Solaris does not support cron jobs in /etc/cron.d' if node['platform_family'] == 'solaris2'
   create_template(:create)
 end
 
@@ -69,12 +67,10 @@ action :delete do
   file 'legacy named cron.d file' do
     path "/etc/cron.d/#{new_resource.name}"
     action :delete
-    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
 
   file "/etc/cron.d/#{sanitized_name}" do
     action :delete
-    notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
   end
 end
 
@@ -88,7 +84,6 @@ action_class do
     file "#{new_resource.name} legacy named cron.d file" do
       path "/etc/cron.d/#{new_resource.name}"
       action :delete
-      notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
       only_if { new_resource.name != sanitized_name }
     end
 
@@ -114,7 +109,6 @@ action_class do
         environment: new_resource.environment
       )
       action create_action
-      notifies :create, 'template[/etc/crontab]', :delayed if node['cron']['emulate_cron.d']
     end
   end
 end
