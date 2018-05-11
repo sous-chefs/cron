@@ -1,20 +1,5 @@
 class Cron
   class Helpers
-    def self.validate_predefined_value(spec)
-      # Several special predefined values can substitute in the cron expression
-      spec.nil? ||
-        %w(
-          @reboot
-          @yearly
-          @annually
-          @monthly
-          @weekly
-          @daily
-          @midnight
-          @hourly
-        ).include?(spec.downcase)
-    end
-
     def self.validate_numeric(spec, min, max)
       return true if spec == '*'
       #  binding.pry

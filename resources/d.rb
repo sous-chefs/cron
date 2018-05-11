@@ -20,12 +20,7 @@
 require 'shellwords'
 
 property :cookbook, String, default: 'cron'
-
-property :predefined_value, [String], callbacks: {
-  'should be a valid predefined value' => lambda do |spec|
-    ::Cron::Helpers.validate_predefined_value(spec)
-  end,
-}
+property :predefined_value, String, equal_to: %w( @reboot @yearly @annually @monthly @weekly @daily @midnight @hourly )
 property :minute, [Integer, String], default: '*', callbacks: {
   'should be a valid minute spec' => lambda do |spec|
     ::Cron::Helpers.validate_numeric(spec, 0, 59)
