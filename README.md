@@ -61,24 +61,27 @@ cron_d 'Setup the daily usage cron job' do
 end
 ```
 
-## Definitions
+### `cron_access`
 
-### `cron_manage`
+The `cron_access` resource can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.
 
-The `cron_manage` definition can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files. Include this cookbook as dependency to your cookbook and execute the definition as:
+Note: This resource was previously a Chef definition cron_manage. The legacy name will still function, but should be updated.
+
+#### Actions
+
+- `:deny` - Add the user to the cron.deny file (default).
+- `:allow` - Add the user to the cron.allow file.
 
 #### Properties
 
-- `user` - username that you want to control (optional).
-- `action` - `:allow` or `:deny`. :deny is the default.
+- `user` - username that you want to control. If not provided the resource name will be used as the user.
 
 #### Examples
 
 The following will add the user mike to the `/etc/cron.allow` file:
 
 ```ruby
-cron_manage 'mike' do
-  user 'mike'
+cron_access 'mike' do
   action :allow
 end
 ```
@@ -86,12 +89,11 @@ end
 The following will add the user john to the `/etc/cron.deny` file:
 
 ```ruby
-cron_manage 'john' do
-  user 'john'  #optional, resource name will be used if not specified.
+cron_access "Make sure john can't touch cron" do
+  user 'john'
   action :deny  #optional, deny is the default
 end
 ```
-
 
 ## Maintainers
 

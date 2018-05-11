@@ -124,14 +124,20 @@ end
 # Test the definition
 #####################
 
-cron_manage 'alice' do
+cron_access 'alice' do
   action :allow
 end
 
-cron_manage 'bob' do
+cron_access 'bob' do
   action :allow
 end
 
-cron_manage 'tom' do
+cron_access 'tom' do
   action :allow
+end
+
+# legacy resource name
+cron_manage 'Bill breaks things. Take away cron' do
+  user 'bill'
+  action :deny
 end
