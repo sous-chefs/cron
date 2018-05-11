@@ -50,6 +50,10 @@ property :comment, [String, NilClass]
 property :environment, Hash, default: {}
 property :mode, [String, Integer], default: '0600'
 
+def after_created
+  raise 'The cron_d resource requires Linux as it needs support for the cron.d directory functionality.' unless node['os'] == 'linux'
+end
+
 action :create do
   create_template(:create)
 end
