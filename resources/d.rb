@@ -19,7 +19,7 @@
 
 require 'shellwords'
 
-property :cron_name, name_property: true
+property :cron_name, String, name_property: true
 property :cookbook, String, default: 'cron'
 property :predefined_value, String, equal_to: %w( @reboot @yearly @annually @monthly @weekly @daily @midnight @hourly )
 property :minute, [Integer, String], default: '*', callbacks: {
