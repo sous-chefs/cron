@@ -19,6 +19,7 @@
 
 require 'shellwords'
 
+property :cron_name, name_property: true
 property :cookbook, String, default: 'cron'
 property :predefined_value, String, equal_to: %w( @reboot @yearly @annually @monthly @weekly @daily @midnight @hourly )
 property :minute, [Integer, String], default: '*', callbacks: {
@@ -60,7 +61,7 @@ end
 action :delete do
   # cleanup the legacy named job if it exists
   file 'legacy named cron.d file' do
-    path "/etc/cron.d/#{new_resource.name}"
+    path "/etc/cron.d/#{new_resource.cron_name}"
     action :delete
   end
 
@@ -71,15 +72,15 @@ end
 
 action_class do
   def sanitized_name
-    new_resource.name.tr('.', '-')
+    new_resource.cron_name.tr('.', '-')
   end
 
   def create_template(create_action)
     # cleanup the legacy named job if it exists
-    file "#{new_resource.name} legacy named cron.d file" do
-      path "/etc/cron.d/#{new_resource.name}"
+    file "#{new_resource.cron_name} legacy named cron.d file" do
+      path "/etc/cron.d/#{new_resource.cron_name}"
       action :delete
-      only_if { new_resource.name != sanitized_name }
+      only_if { new_resource.cron_name != sanitized_name }
     end
 
     template "/etc/cron.d/#{sanitized_name}" do

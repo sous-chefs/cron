@@ -30,6 +30,7 @@ The `cron_d` custom resource can be used to manage files in `/etc/cron.d`. It su
 
 #### Properties
 
+- `cron_name` - Set the name of the cron job. If this isn't specified we'll use the resource name.
 - `minute`, `hour`, `day`, `month`, `weekday` - schedule your cron job. These correspond exactly to their equivalents in the crontab file. All default to "*".
 - `predefined_value` - schedule your cron job with one of the special predefined value instead of _**_ * pattern. This correspond to `"@reboot"`, `"@yearly"`, `"@annually"`, `"@monthly"`, `"@weekly"`, `"@daily"`, `"@midnight"` or `"@hourly"`.
 - `command` - the command to run. Required.
@@ -42,6 +43,16 @@ The `cron_d` custom resource can be used to manage files in `/etc/cron.d`. It su
 
 ```ruby
 cron_d 'daily-usage-report' do
+  minute  0
+  hour    23
+  command '/srv/app/scripts/daily_report'
+  user    'appuser'
+end
+```
+
+```ruby
+cron_d 'Setup the daily usage cron job' do
+  cron_name 'daily-usage-report'
   minute  0
   hour    23
   command '/srv/app/scripts/daily_report'
