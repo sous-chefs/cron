@@ -37,6 +37,8 @@ action :allow do
       variables['users'] << new_resource.user
       action :nothing
       delayed_action :create
+      # workaround https://github.com/chef/chef/issues/5454
+      cookbook_name = "cron"
     end
   end
 end
@@ -51,6 +53,8 @@ action :deny do
       variables['users'] << new_resource.user
       action :nothing
       delayed_action :create
+      # workaround https://github.com/chef/chef/issues/5454
+      cookbook_name = "cron"
     end
   end
 end
