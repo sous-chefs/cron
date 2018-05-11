@@ -17,7 +17,6 @@ platforms:
   - name: debian-8
   - name: debian-9
   - name: fedora-27
-  - name: freebsd-11
   - name: opensuse-leap-42
   - name: sles-11-sp2
     driver:
@@ -25,9 +24,6 @@ platforms:
   - name: sles-12-sp1
     driver:
       box: chef/sles-12-sp1-x86_64 # private box
-  - name: solaris-11.3
-    driver:
-      box: chef/solaris-11.3 # private box
   - name: ubuntu-14.04
   - name: ubuntu-16.04
 
