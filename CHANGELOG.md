@@ -1,6 +1,11 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.1.0 (2018-05-11)
+
+- Converted chef_manage definition to a custom resource using the accumulator pattern. This will allow for reporting and notification from these resources as they are now real resources. The existing cron_manage name was changed to cron_access, but the existing name will continue to function.
+- Remove the file used with monolithic cron file hosts to fake cron.d. This was unused since 6.0 removed that functionality.
+
 ## 6.0.0 (2018-05-11)
 
 - The cron_d resource no longer provides crontab emulation on FreeBSD or Solaris. This is outside the scope of this resource and users on platforms without cron.d support should instead use Chef's build in cron resource which manages the monolithic cron config.
