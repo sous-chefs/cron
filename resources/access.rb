@@ -38,7 +38,7 @@ action :allow do
       action :nothing
       delayed_action :create
       # workaround https://github.com/chef/chef/issues/5454
-      cookbook_name = "cron"
+      cookbook_name = 'cron' # rubocop: disable Lint/UselessAssignment
     end
   end
 end
@@ -54,7 +54,7 @@ action :deny do
       action :nothing
       delayed_action :create
       # workaround https://github.com/chef/chef/issues/5454
-      cookbook_name = "cron"
+      cookbook_name = 'cron' # rubocop: disable Lint/UselessAssignment
     end
   end
 end
