@@ -1,6 +1,12 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.1.1 (2018-05-11)
+
+- Add missing type for cron_name property
+- Add specs for additional platforms
+- Faise with a better message on non-Linux platforms in the cron_d resource
+
 ## 6.1.0 (2018-05-11)
 
 - Converted chef_manage definition to a custom resource using the accumulator pattern. This will allow for reporting and notification from these resources as they are now real resources. The existing cron_manage name was changed to cron_access, but the existing name will continue to function.
