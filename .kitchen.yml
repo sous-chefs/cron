@@ -12,7 +12,7 @@ platforms:
   - name: amazonlinux
     driver_config:
       box: mvbcoding/awslinux
-  - name: amazonlinux-2
+  - name: amazonlinux-2 # requires insalling the virtualbox extension pack
     driver_config:
       box: stakahashi/amazonlinux2
   - name: centos-6
