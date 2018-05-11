@@ -1,6 +1,6 @@
 #
 # Cookbook:: test
-# Recipe:: test
+# Recipe:: default
 #
 # Copyright:: 2008-2018, Chef Software, Inc
 #
@@ -17,9 +17,13 @@
 # limitations under the License.
 #
 
-apt_update 'update'
+apt_update
 
 include_recipe 'cron'
+
+####################
+# Test the resource
+####################
 
 # create a file with periods as if the older version of this cookbook raspbian
 # the provider should clean it up and we'll test that it doesn't exists
@@ -114,4 +118,20 @@ end
 
 cron_d 'delete_cron' do
   action :delete
+end
+
+#####################
+# Test the definition
+#####################
+
+cron_manage 'alice' do
+  action :allow
+end
+
+cron_manage 'bob' do
+  action :allow
+end
+
+cron_manage 'tom' do
+  action :allow
 end

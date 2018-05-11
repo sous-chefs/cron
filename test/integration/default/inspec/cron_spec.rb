@@ -42,3 +42,7 @@ else
     it { should_not exist }
   end
 end
+
+describe file('/etc/cron.allow') do
+  its('content') { should match /alice/ }
+end

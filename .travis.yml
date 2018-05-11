@@ -1,5 +1,4 @@
 sudo: required
-dist: trusty
 
 addons:
   apt:
@@ -29,7 +28,7 @@ env:
   - INSTANCE=default-ubuntu-1804 CHEF_VERSION=13
   - INSTANCE=default-opensuse-leap CHEF_VERSION=13
   - INSTANCE=default-amazonlinux CHEF_VERSION=13
-  - INSTANCE=default-amazonlinux-2 CHEF_VERSION=13  
+  - INSTANCE=default-amazonlinux-2 CHEF_VERSION=13
   - INSTANCE=manage-centos-7 CHEF_VERSION=13
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
