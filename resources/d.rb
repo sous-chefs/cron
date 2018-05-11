@@ -48,7 +48,7 @@ property :home, [String, NilClass]
 property :shell, [String, NilClass]
 property :comment, [String, NilClass]
 property :environment, Hash, default: {}
-property :mode, [String, Integer], default: '0644'
+property :mode, [String, Integer], default: '0600'
 
 action :create do
   create_template(:create)

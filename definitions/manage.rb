@@ -33,6 +33,7 @@ define :cron_manage, user: nil, action: :deny do
     t = template file do
       source 'cron_manage.erb'
       cookbook 'cron'
+      mode '0600'
       variables users: [],
                 recipe_file: __FILE__.to_s.split('cookbooks/').last,
                 template_file: source.to_s
