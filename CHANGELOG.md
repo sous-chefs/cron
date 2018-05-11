@@ -1,6 +1,16 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.0.0 (2018-05-11)
+
+- The cron_d resource no longer provides crontab emulation on FreeBSD or Solaris. This is outside the scope of this resource and users on platforms without cron.d support should instead use Chef's build in cron resource which manages the monolithic cron config.
+- define pld linux package and service name used for cron
+- Simplify how we validate the predfined_value property to provide better error messages
+- Add a name_property if you want a more descriptive resource name
+- Make sure cron files are 0600 not 0644 for CIS compliance
+- Document the comment property in the readme
+- Create a single test suite to speed up testing
+
 ## 5.1.0 (2018-03-19)
 
 - Add support for Amazon Linux 2.0
