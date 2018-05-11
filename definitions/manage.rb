@@ -4,7 +4,7 @@
 #
 # Author:: Sander Botman. <sbotman@schubergphilis.com>
 #
-# Copyright:: 2014-2017, Sander Botman
+# Copyright:: 2014-2018, Sander Botman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
