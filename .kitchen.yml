@@ -19,7 +19,7 @@ platforms:
   - name: centos-7
   - name: debian-8
   - name: debian-9
-  - name: fedora-27
+  - name: fedora-28
   - name: opensuse-leap-42
   - name: sles-11-sp2
     driver:
