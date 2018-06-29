@@ -31,6 +31,9 @@ end
 describe file('/etc/cron.d/job-with-periods') do
   it { should exist }
 end
+describe file('/etc/cron.d/with_random_delay') do
+  its(:content) { should match(/RANDOM_DELAY=60/) }
+end
 
 # we created this in the test recipe and the provider should clean it up
 describe file('/etc/cron.d/job.with.periods') do

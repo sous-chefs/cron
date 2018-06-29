@@ -102,6 +102,13 @@ cron_d 'job.with.periods' do
   action :create_if_missing
 end
 
+cron_d 'with_random_delay' do
+  command '/bin/true'
+  user 'appuser'
+  action :create_if_missing
+  random_delay 60
+end
+
 cron_d 'test-weekday-usage-report2' do
   name 'test-weekday-usage-report'
   minute '1'
