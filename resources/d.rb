@@ -49,6 +49,7 @@ property :shell, [String, NilClass]
 property :comment, [String, NilClass]
 property :environment, Hash, default: {}
 property :mode, [String, Integer], default: '0600'
+property :random_delay, [Integer, NilClass]
 
 def after_created
   raise 'The cron_d resource requires Linux as it needs support for the cron.d directory functionality.' unless node['os'] == 'linux'
@@ -106,6 +107,7 @@ action_class do
         home: new_resource.home,
         shell: new_resource.shell,
         comment: new_resource.comment,
+        random_delay: new_resource.random_delay,
         environment: new_resource.environment
       )
       action create_action
