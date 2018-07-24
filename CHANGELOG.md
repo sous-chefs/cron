@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.2.0 (2018-07-24)
+
+- Finish the random_delay property begun in https://github.com/chef-cookbooks/cron/pull/103
+
 ## 6.1.1 (2018-05-11)
 
 - Add missing type for cron_name property
