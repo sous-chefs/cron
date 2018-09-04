@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.2.1 (2018-09-04)
+
+- Added a note to the readme announcing the deprecation of the cron_d and cron_access resources in this cookbook. As both of these resources shipped in Chef 14.4 they will be deprecated when Chef 15.4 ships in Aug 2019.
+
 ## 6.2.0 (2018-07-24)
 
 - Finish the random_delay property begun in https://github.com/chef-cookbooks/cron/pull/103
