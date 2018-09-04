@@ -21,9 +21,9 @@ apt_update
 
 include_recipe 'cron'
 
-####################
-# Test the resource
-####################
+##########################
+# Test the cron_d resource
+##########################
 
 # create a file with periods as if the older version of this cookbook raspbian
 # the provider should clean it up and we'll test that it doesn't exists
@@ -127,9 +127,9 @@ cron_d 'delete_cron' do
   action :delete
 end
 
-#####################
-# Test the definition
-#####################
+##########################
+# Test the manage resource
+##########################
 
 cron_access 'alice' do
   action :allow

@@ -4,6 +4,8 @@
 
 Installs the cron package and starts the crond service.
 
+Note: Chef 14.4 shipped with the cron_d and cron_access (cron_manage) resources. When Chef 15.4 ships in Aug 2019 these resources will be removed from this cookbook as all users should be on Chef 14.4 or later.
+
 ## Requirements
 
 ### Platforms
