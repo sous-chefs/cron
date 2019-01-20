@@ -23,7 +23,6 @@ env:
   - INSTANCE=default-debian-8 CHEF_VERSION=13
   - INSTANCE=default-debian-9 CHEF_VERSION=13
   - INSTANCE=default-fedora-latest CHEF_VERSION=13
-  - INSTANCE=default-ubuntu-1404 CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1604 CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1804 CHEF_VERSION=13
   - INSTANCE=default-opensuse-leap CHEF_VERSION=13
@@ -35,7 +34,6 @@ env:
   - INSTANCE=default-debian-8
   - INSTANCE=default-debian-9
   - INSTANCE=default-fedora-latest
-  - INSTANCE=default-ubuntu-1404
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-ubuntu-1804
   - INSTANCE=default-opensuse-leap
@@ -50,7 +48,7 @@ before_script:
   - cookstyle --version
   - foodcritic --version
 
-script: KITCHEN_LOCAL_YAML=.kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
+script: KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
 
 matrix:
   include:
