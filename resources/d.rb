@@ -2,7 +2,7 @@
 # Cookbook:: cron
 # Resource:: d
 #
-# Copyright:: 2008-2018, Chef Software, Inc.
+# Copyright:: 2008-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+chef_version_for_provides '< 14.4' if respond_to?(:chef_version_for_provides)
+resource_name :cron_d
 
 require 'shellwords'
 
