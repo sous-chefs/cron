@@ -1,14 +1,15 @@
-sudo: required
 
 addons:
   apt:
     sources:
-      - chef-current-trusty
+      - chef-current-xenial
     packages:
-      - chefdk
+      - chef-workstation
 
-# Don't `bundle install` which takes about 1.5 mins
 install: echo "skip bundle install"
+
+env:
+  - CHEF_LICENSE=accept
 
 branches:
   only:
@@ -22,6 +23,7 @@ env:
   - INSTANCE=default-centos-7 CHEF_VERSION=13
   - INSTANCE=default-debian-8 CHEF_VERSION=13
   - INSTANCE=default-debian-9 CHEF_VERSION=13
+  - INSTANCE=default-debian-10 CHEF_VERSION=13
   - INSTANCE=default-fedora-latest CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1604 CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1804 CHEF_VERSION=13
@@ -29,10 +31,23 @@ env:
   - INSTANCE=default-amazonlinux CHEF_VERSION=13
   - INSTANCE=default-amazonlinux-2 CHEF_VERSION=13
   - INSTANCE=manage-centos-7 CHEF_VERSION=13
+  - INSTANCE=default-centos-6 CHEF_VERSION=14
+  - INSTANCE=default-centos-7 CHEF_VERSION=14
+  - INSTANCE=default-debian-8 CHEF_VERSION=14
+  - INSTANCE=default-debian-9 CHEF_VERSION=14
+  - INSTANCE=default-debian-10 CHEF_VERSION=14
+  - INSTANCE=default-fedora-latest CHEF_VERSION=14
+  - INSTANCE=default-ubuntu-1604 CHEF_VERSION=14
+  - INSTANCE=default-ubuntu-1804 CHEF_VERSION=14
+  - INSTANCE=default-opensuse-leap CHEF_VERSION=14
+  - INSTANCE=default-amazonlinux CHEF_VERSION=14
+  - INSTANCE=default-amazonlinux-2 CHEF_VERSION=14
+  - INSTANCE=manage-centos-7 CHEF_VERSION=14
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
   - INSTANCE=default-debian-8
   - INSTANCE=default-debian-9
+  - INSTANCE=default-debian-10
   - INSTANCE=default-fedora-latest
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-ubuntu-1804
@@ -45,13 +60,13 @@ before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - chef --version
-  - cookstyle --version
-  - foodcritic --version
 
 script: KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
 
 matrix:
   include:
     - script:
-      - chef exec delivery local all
-      env: UNIT_AND_LINT=1
+      - delivery local all
+      env:
+        - UNIT_AND_LINT=1
+        - CHEF_LICENSE=accept

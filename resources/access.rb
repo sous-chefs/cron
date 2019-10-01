@@ -6,7 +6,7 @@
 # Author:: Tim Smith <tsmith@chef.io>
 #
 # Copyright:: 2014-2018, Sander Botman
-# Copyright:: 2018, Chef Software, Inc.
+# Copyright:: 2018-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,9 @@
 # limitations under the License.
 #
 
+chef_version_for_provides '< 14.4' if respond_to?(:chef_version_for_provides)
 resource_name :cron_access
-provides :cron_access
+
 provides :cron_manage # legacy name
 
 property :user, String, name_property: true

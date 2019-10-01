@@ -144,7 +144,7 @@ cron_access 'tom' do
 end
 
 # legacy resource name
-cron_manage 'Bill breaks things. Take away cron' do
+cron_manage 'Bill breaks things. Take away cron' do # rubocop: disable ChefModernize/CronManageResource
   user 'bill'
   action :deny
 end
