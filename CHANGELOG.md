@@ -1,6 +1,11 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.2.2 (2019-09-30)
+
+- Avoid deprecation warnings post Chef 14.4 - [@tas50](https://github.com/tas50)
+- Resolve cookstyle warnings - [@tas50](https://github.com/tas50)
+
 ## 6.2.1 (2018-09-04)
 
 - Added a note to the readme announcing the deprecation of the cron_d and cron_access resources in this cookbook. As both of these resources shipped in Chef 14.4 they will be deprecated when Chef 15.4 ships in Aug 2019.
