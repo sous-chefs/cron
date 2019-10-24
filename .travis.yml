@@ -27,31 +27,33 @@ env:
   - INSTANCE=default-fedora-latest CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1604 CHEF_VERSION=13
   - INSTANCE=default-ubuntu-1804 CHEF_VERSION=13
-  - INSTANCE=default-opensuse-leap CHEF_VERSION=13
+  - INSTANCE=default-opensuse-leap-15 CHEF_VERSION=13
   - INSTANCE=default-amazonlinux CHEF_VERSION=13
   - INSTANCE=default-amazonlinux-2 CHEF_VERSION=13
   - INSTANCE=manage-centos-7 CHEF_VERSION=13
   - INSTANCE=default-centos-6 CHEF_VERSION=14
   - INSTANCE=default-centos-7 CHEF_VERSION=14
+  - INSTANCE=default-centos-8 CHEF_VERSION=14
   - INSTANCE=default-debian-8 CHEF_VERSION=14
   - INSTANCE=default-debian-9 CHEF_VERSION=14
   - INSTANCE=default-debian-10 CHEF_VERSION=14
   - INSTANCE=default-fedora-latest CHEF_VERSION=14
   - INSTANCE=default-ubuntu-1604 CHEF_VERSION=14
   - INSTANCE=default-ubuntu-1804 CHEF_VERSION=14
-  - INSTANCE=default-opensuse-leap CHEF_VERSION=14
+  - INSTANCE=default-opensuse-leap-15 CHEF_VERSION=14
   - INSTANCE=default-amazonlinux CHEF_VERSION=14
   - INSTANCE=default-amazonlinux-2 CHEF_VERSION=14
   - INSTANCE=manage-centos-7 CHEF_VERSION=14
   - INSTANCE=default-centos-6
   - INSTANCE=default-centos-7
+  - INSTANCE=default-centos-8
   - INSTANCE=default-debian-8
   - INSTANCE=default-debian-9
   - INSTANCE=default-debian-10
   - INSTANCE=default-fedora-latest
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-ubuntu-1804
-  - INSTANCE=default-opensuse-leap
+  - INSTANCE=default-opensuse-leap-15
   - INSTANCE=default-amazonlinux
   - INSTANCE=default-amazonlinux-2
   - INSTANCE=manage-centos-7

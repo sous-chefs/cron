@@ -2,7 +2,12 @@
 if %w(debian ubuntu fedora redhat).include?(os[:family])
   if %w(redhat fedora).include?(os[:family])
     service_name = 'crond'
-    package_name = os[:release].to_i >= 6 ? 'cronie' : 'vixie-cron'
+    package_name = 'cronie'
+
+    # RHEL 7+ check
+    unless os[:name] == 'amazon' && os[:release].to_i >= 6
+      package_name = 'vixie-cron'
+    end
   elsif %w(debian ubuntu).include?(os[:family])
     service_name = 'cron'
     package_name = 'cron'
