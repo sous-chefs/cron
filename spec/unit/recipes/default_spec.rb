@@ -3,7 +3,7 @@ require 'spec_helper'
 platforms = [
   {
     platform: 'debian',
-    version: '9.3',
+    version: '9',
     package: 'cron',
   },
   {
@@ -18,12 +18,12 @@ platforms = [
   },
   {
     platform: 'fedora',
-    version: '27',
+    version: '30',
     package: 'cronie',
   },
   {
     platform: 'centos',
-    version: '7.4.1708',
+    version: '7',
     package: 'cronie',
   },
   {
@@ -37,13 +37,13 @@ platforms = [
     package: 'cronie',
   },
   {
-    platform: 'suse',
-    version: '11.4',
-    package: 'cron',
+    platform: 'opensuse',
+    version: '15',
+    package: 'cronie',
   },
   {
     platform: 'suse',
-    version: '12.3',
+    version: '12',
     package: 'cronie',
   },
 ]
