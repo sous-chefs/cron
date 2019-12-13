@@ -29,8 +29,7 @@ default['cron']['package_name'] = case node['platform_family']
                                     []
                                   end
 
-default['cron']['service_name'] = case node['platform_family']
-                                  when 'amazon', 'rhel', 'fedora', 'pld'
+default['cron']['service_name'] = if platform_family?('amazon', 'rhel', 'fedora', 'pld')
                                     'crond'
                                   else
                                     'cron'
