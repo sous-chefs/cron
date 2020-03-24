@@ -1,6 +1,17 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.3.0 (2020-03-24)
+
+- Expand tests and fix Amazon tests - [@tas50](https://github.com/tas50)
+- Update copyrights - [@tas50](https://github.com/tas50)
+- Remove support for SLES 11 and simplify package logic - [@tas50](https://github.com/tas50)
+- Update specs for newer platforms - [@tas50](https://github.com/tas50)
+- Simplify platform check logic - [@tas50](https://github.com/tas50)
+- Require Chef 12.15+ - [@tas50](https://github.com/tas50)
+- Update platforms we test on - [@tas50](https://github.com/tas50)
+- Update how we define the resource names / provides - [@tas50](https://github.com/tas50)
+
 ## 6.2.2 (2019-09-30)
 
 - Avoid deprecation warnings post Chef 14.4 - [@tas50](https://github.com/tas50)

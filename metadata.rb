@@ -3,7 +3,7 @@ maintainer 'Chef Software, Inc.'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache-2.0'
 description 'Installs cron'
-version '6.2.2'
+version '6.3.0'
 
 %w(ubuntu debian fedora redhat centos scientific oracle amazon smartos omnios solaris2 freebsd zlinux opensuse suse opensuseleap).each do |os|
   supports os
