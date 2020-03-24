@@ -30,10 +30,10 @@ end
 
 # make sure the :create_if_missing didn't overwrite the :create
 describe file('/etc/cron.d/test-weekday-usage-report') do
-  its(:content) { should match(/\/srv\/app\/scripts\/generate_report/) }
+  its(:content) { should match(%r{/srv/app/scripts/generate_report}) }
 end
 describe file('/etc/cron.d/nil_value_check') do
-  its(:content) { should match(/\* \* \* \* \* appuser \/bin\/true/) }
+  its(:content) { should match(%r{\* \* \* \* \* appuser /bin/true}) }
 end
 describe file('/etc/cron.d/delete_cron') do
   it { should_not exist }
