@@ -1,6 +1,10 @@
 # cron Cookbook CHANGELOG
 This file is used to list changes made in each version of the cron cookbook.
 
+## 6.3.1 (2020-06-09)
+
+- Ensure we have both resource_name and provides in resources - [@tas50](https://github.com/tas50)
+
 ## 6.3.0 (2020-03-24)
 
 - Expand tests and fix Amazon tests - [@tas50](https://github.com/tas50)
