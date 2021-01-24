@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
-## Unreleased
+## 6.4.0 - *2021-01-24*
 
 - Sous Chefs Adoption
 - Standardise files with files in sous-chefs/repo-management
