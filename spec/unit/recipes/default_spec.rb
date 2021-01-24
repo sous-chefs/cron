@@ -3,32 +3,22 @@ require 'spec_helper'
 platforms = [
   {
     platform: 'debian',
-    version: '9',
+    version: '10',
     package: 'cron',
   },
   {
     platform: 'ubuntu',
-    version: '16.04',
+    version: '20.04',
     package: 'cron',
   },
   {
-    platform: 'centos',
-    version: '6.9',
-    package: 'cronie',
-  },
-  {
     platform: 'fedora',
-    version: '30',
+    version: '32',
     package: 'cronie',
   },
   {
     platform: 'centos',
-    version: '7',
-    package: 'cronie',
-  },
-  {
-    platform: 'amazon',
-    version: '2017.09',
+    version: '8',
     package: 'cronie',
   },
   {
