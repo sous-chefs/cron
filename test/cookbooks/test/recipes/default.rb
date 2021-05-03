@@ -19,7 +19,10 @@
 
 apt_update
 
-include_recipe 'cron'
+cron_package 'cron'
+cron_service 'cron' do
+  action %i(enable start)
+end
 
 ##########################
 # Test the cron_d resource
