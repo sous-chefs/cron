@@ -32,7 +32,7 @@ action :allow do
       source 'cron_manage.erb'
       cookbook 'cron'
 
-      mode '0600'
+      mode '0660'
 
       variables['users'] ||= []
       variables['users'] << new_resource.user
@@ -49,7 +49,7 @@ action :deny do
       source 'cron_manage.erb'
       cookbook 'cron'
 
-      mode '0600'
+      mode '0660'
 
       variables['users'] ||= []
       variables['users'] << new_resource.user

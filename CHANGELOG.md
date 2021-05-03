@@ -5,10 +5,11 @@ This file is used to list changes made in each version of the cron cookbook.
 ## Unreleased
 
 - Replace recipes and attributes with Chef 17 compliant resources
-  - Remove attributes.
-  - Remove recipes.
-  - Replace default recipe with package and service resource.
-  - Enable unified_mode on all resources.
+  - Remove attributes
+  - Remove recipes
+  - Replace default recipe with package and service resource
+  - Enable unified_mode on all resources
+- Correct cron.allow/deny permissions for Debian base distros
 
 ## 6.4.0 - *2021-01-24*
 
