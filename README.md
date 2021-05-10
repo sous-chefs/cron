@@ -28,10 +28,6 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 - Chef 12.7+
 
-### Cookbooks
-
-- None
-
 ## Resources
 
 - [cron_access](documentation/cron_access.md)
