@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the cron cookbook.
 
 ## Unreleased
 
+- resolved cookstyle error: resources/access.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
 ## 6.4.0 - *2021-01-24*
 
 - Sous Chefs Adoption

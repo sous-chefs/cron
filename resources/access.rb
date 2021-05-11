@@ -25,6 +25,7 @@ chef_version_for_provides '< 14.4' if respond_to?(:chef_version_for_provides)
 
 resource_name :cron_access
 provides :cron_access
+unified_mode true
 provides :cron_manage # legacy name
 
 property :user, String, name_property: true
