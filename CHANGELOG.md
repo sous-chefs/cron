@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
-## Unreleased
+## 7.0.0 - *2021-05-13*
 
 - Replace recipes and attributes with Chef 17 compliant resources
   - Remove attributes
