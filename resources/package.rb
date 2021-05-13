@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-unified_mode true
+unified_mode true if respond_to?(:unified_mode)
 
 include ::Cron::Cookbook::Helpers
 
