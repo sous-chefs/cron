@@ -17,72 +17,87 @@
 # limitations under the License.
 #
 
-chef_version_for_provides '< 14.4' if respond_to?(:chef_version_for_provides)
+unified_mode true
 
-require 'shellwords'
+property :cron_name, String,
+          name_property: true
 
-property :cron_name, String, name_property: true
-property :cookbook, String, default: 'cron'
-property :predefined_value, String, equal_to: %w( @reboot @yearly @annually @monthly @weekly @daily @midnight @hourly )
-property :minute, [Integer, String], default: '*', callbacks: {
-  'should be a valid minute spec' => lambda do |spec|
-    ::Cron::Helpers.validate_numeric(spec, 0, 59)
-  end,
-}
-property :hour, [Integer, String], default: '*', callbacks: {
-  'should be a valid hour spec' => ->(spec) { ::Cron::Helpers.validate_numeric(spec, 0, 23) },
-}
-property :day, [Integer, String], default: '*', callbacks: {
-  'should be a valid day spec' => ->(spec) { ::Cron::Helpers.validate_numeric(spec, 1, 31) },
-}
-property :month, [Integer, String], default: '*', callbacks: {
-  'should be a valid month spec' => ->(spec) { ::Cron::Helpers.validate_month(spec) },
-}
-property :weekday, [Integer, String], default: '*', callbacks: {
-  'should be a valid weekday spec' => ->(spec) { ::Cron::Helpers.validate_dow(spec) },
-}
+property :cookbook, String,
+          default: 'cron'
 
-property :command, String, required: true
-property :user, String, default: 'root'
-property :mailto, [String, NilClass]
-property :path, [String, NilClass]
-property :home, [String, NilClass]
-property :shell, [String, NilClass]
-property :comment, [String, NilClass]
-property :environment, Hash, default: {}
-property :mode, [String, Integer], default: '0600'
-property :random_delay, [Integer, NilClass]
+property :predefined_value, String,
+          equal_to: %w( @reboot @yearly @annually @monthly @weekly @daily @midnight @hourly )
 
-def after_created
-  raise 'The cron_d resource requires Linux as it needs support for the cron.d directory functionality.' unless node['os'] == 'linux'
-end
+property :minute, [Integer, String],
+          default: '*',
+          callbacks: {
+                        'should be a valid minute spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 59) },
+                      }
 
-action :create do
-  create_template(:create)
-end
+property :hour, [Integer, String],
+          default: '*',
+          callbacks: {
+                       'should be a valid hour spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 23) },
+                     }
 
-action :create_if_missing do
-  create_template(:create_if_missing)
-end
+property :day, [Integer, String],
+          default: '*',
+          callbacks: {
+                       'should be a valid day spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 1, 31) },
+                     }
 
-action :delete do
-  # cleanup the legacy named job if it exists
-  file 'legacy named cron.d file' do
-    path "/etc/cron.d/#{new_resource.cron_name}"
-    action :delete
-  end
+property :month, [Integer, String],
+          default: '*',
+          callbacks: {
+                       'should be a valid month spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_month(spec) },
+                     }
 
-  file "/etc/cron.d/#{sanitized_name}" do
-    action :delete
-  end
-end
+property :weekday, [Integer, String],
+          default: '*',
+          callbacks: {
+                      'should be a valid weekday spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_dow(spec) },
+                     }
+
+property :command, String
+
+property :user, String,
+          default: 'root'
+
+property :mailto, String
+
+property :path, String
+
+property :home, String
+
+property :shell, String
+
+property :comment, String
+
+property :environment, Hash,
+          default: {}
+
+property :mode, [String, Integer],
+          default: '0600'
+
+property :random_delay, Integer
 
 action_class do
   def sanitized_name
     new_resource.cron_name.tr('.', '-')
   end
 
+  def required_properties_set?
+    raise Chef::Exceptions::ValidationFailed, 'command is a required property' unless action.eql?(:delete) || !new_resource.command.nil?
+  end
+
+  def platform_check
+    raise 'The cron_d resource requires Linux as it needs support for the cron.d directory functionality.' unless node['os'] == 'linux'
+  end
+
   def create_template(create_action)
+    platform_check
+    required_properties_set?
+
     # cleanup the legacy named job if it exists
     file "#{new_resource.cron_name} legacy named cron.d file" do
       path "/etc/cron.d/#{new_resource.cron_name}"
@@ -114,5 +129,21 @@ action_class do
       )
       action create_action
     end
+  end
+end
+
+%i(create create_if_missing).each do |action_type|
+  send(:action, action_type) { create_template(action) }
+end
+
+action :delete do
+  # cleanup the legacy named job if it exists
+  file 'legacy named cron.d file' do
+    path "/etc/cron.d/#{new_resource.cron_name}"
+    action :delete
+  end
+
+  file "/etc/cron.d/#{sanitized_name}" do
+    action :delete
   end
 end

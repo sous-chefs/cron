@@ -21,26 +21,24 @@
 # limitations under the License.
 #
 
-chef_version_for_provides '< 14.4' if respond_to?(:chef_version_for_provides)
+unified_mode true
 
-resource_name :cron_access
-provides :cron_access
-provides :cron_manage # legacy name
-
-property :user, String, name_property: true
+property :user, String,
+          name_property: true
 
 action :allow do
   with_run_context :root do
     edit_resource(:template, '/etc/cron.allow') do |new_resource|
       source 'cron_manage.erb'
       cookbook 'cron'
-      mode '0600'
+
+      mode '0660'
+
       variables['users'] ||= []
       variables['users'] << new_resource.user
+
       action :nothing
       delayed_action :create
-      # workaround https://github.com/chef/chef/issues/5454
-      cookbook_name = 'cron' # rubocop: disable Lint/UselessAssignment
     end
   end
 end
@@ -50,13 +48,14 @@ action :deny do
     edit_resource(:template, '/etc/cron.deny') do |new_resource|
       source 'cron_manage.erb'
       cookbook 'cron'
-      mode '0600'
+
+      mode '0660'
+
       variables['users'] ||= []
       variables['users'] << new_resource.user
+
       action :nothing
       delayed_action :create
-      # workaround https://github.com/chef/chef/issues/5454
-      cookbook_name = 'cron' # rubocop: disable Lint/UselessAssignment
     end
   end
 end

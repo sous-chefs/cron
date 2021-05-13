@@ -1,11 +1,15 @@
+---
 driver:
   name: vagrant
 
 provisioner:
   name: chef_zero
-  product_name: chef
   deprecations_as_errors: true
-  chef_license: accept-no-persist
+  chef_license: accept
+  product_name: chef
+  product_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  install_strategy: always
+  log_level: <%= ENV['CHEF_LOG_LEVEL'] || 'auto' %>
 
 verifier:
   name: inspec
@@ -25,3 +29,4 @@ suites:
   - name: default
     run_list:
       - recipe[test::default]
+...
