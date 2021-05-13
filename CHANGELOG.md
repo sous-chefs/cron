@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the cron cookbook.
 
 ## Unreleased
 
+- Make unified_mode calls conditional for Chef < 15.3 compatibility
+
 ## 7.0.0 - *2021-05-13*
 
 - Replace recipes and attributes with Chef 17 compliant resources

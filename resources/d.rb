@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-unified_mode true
+unified_mode true if respond_to?(:unified_mode)
 
 property :cron_name, String,
           name_property: true
@@ -31,8 +31,8 @@ property :predefined_value, String,
 property :minute, [Integer, String],
           default: '*',
           callbacks: {
-                        'should be a valid minute spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 59) },
-                      }
+                       'should be a valid minute spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 59) },
+                     }
 
 property :hour, [Integer, String],
           default: '*',
