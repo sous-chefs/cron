@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
+## Unreleased
+
 ## 7.0.2 - *2021-06-01*
 
 ## 7.0.1 - *2021-05-13*
