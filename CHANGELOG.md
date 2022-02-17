@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the cron cookbook.
 
 ## Unreleased
 
+- Standardise files with files in sous-chefs/repo-management
 - Remove delivery folder
 
 ## 7.0.3 - *2021-08-30*
