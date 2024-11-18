@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
+## Unreleased
+
 ## 7.0.28 - *2024-11-18*
 
 Standardise files with files in sous-chefs/repo-management
