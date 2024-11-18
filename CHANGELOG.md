@@ -4,6 +4,10 @@ This file is used to list changes made in each version of the cron cookbook.
 
 ## Unreleased
 
+Standardise files with files in sous-chefs/repo-management
+
+Standardise files with files in sous-chefs/repo-management
+
 ## 7.0.27 - *2024-07-15*
 
 Standardise files with files in sous-chefs/repo-management
