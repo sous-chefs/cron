@@ -48,4 +48,5 @@ end
 
 describe file('/etc/cron.allow') do
   its('content') { should match /alice/ }
+  its('mode') { should cmp '0600' }
 end

@@ -28,6 +28,10 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 - Chef 12.7+
 
+## Attributes
+
+- `node['cron']['access_file_mode']` - File mode for `/etc/cron.allow` and `/etc/cron.deny` files. Default: `'0600'` (CIS Benchmark compliant - owner read/write only, no group/other access)
+
 ## Resources
 
 - [cron_access](documentation/cron_access.md)
