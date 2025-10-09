@@ -7,7 +7,7 @@ module Cron
         return true if spec == '*'
 
         if spec.respond_to? :to_int
-          return false unless spec >= min && spec <= max
+          return false unless spec.between?(min, max)
           return true
         end
 
@@ -16,7 +16,7 @@ module Cron
           next if x == '*'
           return false unless x =~ /^\d+$/
           x = x.to_i
-          return false unless x >= min && x <= max
+          return false unless x.between?(min, max)
         end
         true
       end

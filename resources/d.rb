@@ -31,32 +31,32 @@ property :predefined_value, String,
 property :minute, [Integer, String],
           default: '*',
           callbacks: {
-                       'should be a valid minute spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 59) },
-                     }
+            'should be a valid minute spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 59) },
+          }
 
 property :hour, [Integer, String],
           default: '*',
           callbacks: {
-                       'should be a valid hour spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 23) },
-                     }
+            'should be a valid hour spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 0, 23) },
+          }
 
 property :day, [Integer, String],
           default: '*',
           callbacks: {
-                       'should be a valid day spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 1, 31) },
-                     }
+            'should be a valid day spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_numeric(spec, 1, 31) },
+          }
 
 property :month, [Integer, String],
           default: '*',
           callbacks: {
-                       'should be a valid month spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_month(spec) },
-                     }
+            'should be a valid month spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_month(spec) },
+          }
 
 property :weekday, [Integer, String],
           default: '*',
           callbacks: {
-                      'should be a valid weekday spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_dow(spec) },
-                     }
+            'should be a valid weekday spec' => ->(spec) { ::Cron::Cookbook::CronHelpers.validate_dow(spec) },
+          }
 
 property :command, String
 
