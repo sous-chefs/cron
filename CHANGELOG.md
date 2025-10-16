@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
+## Unreleased
+
+Standardise files with files in sous-chefs/repo-management
+
+
 ## [7.0.30](https://github.com/sous-chefs/cron/compare/7.0.29...v7.0.30) (2025-10-15)
 
 
