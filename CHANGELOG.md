@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
+## [7.0.30](https://github.com/sous-chefs/cron/compare/7.0.29...v7.0.30) (2025-10-15)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#189](https://github.com/sous-chefs/cron/issues/189)) ([c5bc80f](https://github.com/sous-chefs/cron/commit/c5bc80fca65e11fd74d3730c9be7a2dccf1f9960))
+
 ## 7.0.9 - *2023-02-23*
 
 * Remove delivery
