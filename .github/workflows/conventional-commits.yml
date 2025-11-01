@@ -1,0 +1,9 @@
+---
+name: conventional-commits
+
+"on":
+  pull_request:
+
+jobs:
+  conventional-commits:
+    uses: sous-chefs/.github/.github/workflows/conventional-commits.yml@5.0.3
