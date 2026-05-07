@@ -28,11 +28,14 @@ end
 # Test the cron_d resource
 ##########################
 
-# create a file with periods as if the older version of this cookbook raspbian
-# the provider should clean it up and we'll test that it doesn't exists
-file '/etc/cron.d/job.with.periods' do # rubocop:disable Chef/Modernize/CronDFileOrTemplate
-  content 'old junk'
-  action :create
+# Create a file with periods as if an older cookbook release had written it. The marker keeps the
+# fixture idempotent after cron_d removes the legacy file.
+ruby_block 'seed legacy cron.d file with periods' do
+  block do
+    ::File.write('/etc/cron.d/job.with.periods', 'old junk')
+    ::File.write('/etc/cron.d/.job.with.periods.seeded', 'seeded')
+  end
+  not_if { ::File.exist?('/etc/cron.d/.job.with.periods.seeded') }
 end
 
 cron_d 'bizarrely-scheduled-usage-report' do
@@ -122,8 +125,12 @@ cron_d 'test-weekday-usage-report2' do
   action :create_if_missing
 end
 
-file '/etc/cron.d/delete_cron' do # rubocop:disable Chef/Modernize/CronDFileOrTemplate
-  content '* * * * * appuser /bin/true'
+ruby_block 'seed cron.d file for delete action' do
+  block do
+    ::File.write('/etc/cron.d/delete_cron', '* * * * * appuser /bin/true')
+    ::File.write('/etc/cron.d/.delete_cron.seeded', 'seeded')
+  end
+  not_if { ::File.exist?('/etc/cron.d/.delete_cron.seeded') }
 end
 
 cron_d 'delete_cron' do
