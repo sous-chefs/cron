@@ -4,7 +4,8 @@
 
 The `cron_access` resource can be used to manage the `/etc/cron.allow` and `/etc/cron.deny` files.
 
-Note: This resource was previously a Chef definition cron_manage. The legacy name will still function, but should be updated.
+Note: This resource was previously exposed as `cron_manage`. The legacy alias still functions, but
+new code should use `cron_access`.
 
 ## Actions
 

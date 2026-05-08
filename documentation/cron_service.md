@@ -8,8 +8,12 @@ Introduced: v7.0.0
 
 ## Actions
 
-- `:install`
-- `:remove`
+- `:start`
+- `:stop`
+- `:reload`
+- `:restart`
+- `:disable`
+- `:enable`
 
 ## Properties
 

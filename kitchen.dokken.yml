@@ -1,10 +1,14 @@
+---
 driver:
   name: dokken
   privileged: true
   chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
 
 transport: { name: dokken }
-provisioner: { name: dokken }
+provisioner:
+  name: dokken
+  enforce_idempotency: <%= ENV['ENFORCE_IDEMPOTENCY'] || true %>
+  multiple_converge: <%= ENV['MULTIPLE_CONVERGE'] || 2 %>
 
 platforms:
   - name: almalinux-8
@@ -81,11 +85,6 @@ platforms:
     driver:
       image: dokken/rockylinux-10
       pid_one_command: /usr/lib/systemd/systemd
-
-  - name: ubuntu-20.04
-    driver:
-      image: dokken/ubuntu-20.04
-      pid_one_command: /bin/systemd
 
   - name: ubuntu-22.04
     driver:

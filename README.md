@@ -6,9 +6,12 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Installs the cron package and starts the crond service.
+This cookbook provides custom resources for installing the cron daemon, managing the daemon service,
+rendering files in `/etc/cron.d`, and managing cron allow/deny lists.
 
-Note: Chef 14.4 shipped with the cron_d and cron_access (cron_manage) resources. When Chef 15.4 ships in Aug 2019 these resources will be removed from this cookbook as all users should be on Chef 14.4 or later.
+> [!IMPORTANT]
+> This release finishes the custom-resource migration and removes support for Chef Infra Client
+> releases older than 15.3. See [migration.md](migration.md) before upgrading wrapper cookbooks.
 
 ## Maintainers
 
@@ -18,15 +21,22 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-- RHEL family
-- Debian family
-- Solaris family
-- FreeBSD
-- SUSE family
+- AlmaLinux 8+
+- Amazon Linux 2023
+- CentOS Stream 9+
+- Debian 12+
+- Fedora
+- openSUSE Leap 15
+- Oracle Linux 8+
+- Red Hat Enterprise Linux 8+
+- Rocky Linux 8+
+- Ubuntu 22.04+
+
+See [LIMITATIONS.md](LIMITATIONS.md) for package and platform notes.
 
 ### Chef
 
-- Chef 12.7+
+- Chef 15.3+
 
 ## Resources
 
@@ -34,6 +44,10 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 - [cron_d](documentation/cron_d.md)
 - [cron_package](documentation/cron_package.md)
 - [cron_service](documentation/cron_service.md)
+
+## Migration
+
+See [migration.md](migration.md) for the breaking changes and resource examples.
 
 ## Contributors
 
