@@ -2,6 +2,17 @@
 
 This file is used to list changes made in each version of the cron cookbook.
 
+## [8.0.0](https://github.com/sous-chefs/cron/compare/v7.0.31...v8.0.0) (2026-05-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate cron to custom resources ([#196](https://github.com/sous-chefs/cron/issues/196))
+
+### Features
+
+* migrate cron to custom resources ([#196](https://github.com/sous-chefs/cron/issues/196)) ([febed10](https://github.com/sous-chefs/cron/commit/febed10bcd8d371636a0562bf05f65715275efb8))
+
 ## [7.0.31](https://github.com/sous-chefs/cron/compare/v7.0.30...v7.0.31) (2026-04-20)
 
 
