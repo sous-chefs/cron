@@ -32,7 +32,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 - Rocky Linux 8+
 - Ubuntu 22.04+
 
-See [LIMITATIONS.md](LIMITATIONS.md) for package and platform notes.
+See [AGENTS.md](AGENTS.md) for package and platform notes.
 
 ### Chef
 
