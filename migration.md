@@ -14,7 +14,7 @@ Chef Infra Client 15.3 or later is required. This is the minimum version that su
 ## Platform Support
 
 The supported platform list now reflects actively tested Linux platforms with cron.d support. See
-[LIMITATIONS.md](LIMITATIONS.md) for package availability and removed EOL platforms.
+[AGENTS.md](AGENTS.md) for package availability and removed EOL platforms.
 Amazon Linux 2 is removed from the declared support list because the current Chef/Cinc client cannot
 run on its libc baseline, and the older client fallback cannot verify the service resource under
 Dokken.
